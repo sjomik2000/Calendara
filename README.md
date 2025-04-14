@@ -13,7 +13,7 @@ Calendara is a robust calendar application built on modern .NET technologies tha
 4) Delete: Events can be permanently removed from the system with appropriate confirmation mechanisms.
 
 ### B) RESTful API Standards
-The API strictly follows REST architectural constraints:
+The API follows REST architectural constraints:
 
 * Resource-based URLs (/api/events/{id})
 * Proper HTTP methods (GET, POST, PUT, DELETE)
