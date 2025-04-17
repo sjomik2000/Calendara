@@ -98,7 +98,7 @@ Azure DevOps pipelines ensure automated quality control:
 - [ ] Service Layer 
 - [ ] Database Layer 
 - [ ] PostgreSQL config
-- [ ] EF core Code first initialisation
+- [ ] EF core Code first init
 - [ ] Validation
 
 ## 4. ChangeLog
