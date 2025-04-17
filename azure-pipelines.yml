@@ -1,0 +1,83 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+trigger:
+- main
+
+pool: my-personal-computer
+
+variables:
+  buildConfiguration: 'Release'
+  buildPlatform: 'Any CPU'
+  solution: '**/Calendara.Api.sln'                    # Update if your solution is in a subfolder
+  apiProject: '**/Calendara.Api.csproj'        # Confirm exact path
+  applicationProject: '**/Calendara.Application.csproj'
+  contractsProject: '**/Calendara.Contracts.csproj'
+  testProject: '**/Calendara.UnitTests.csproj'
+
+steps:
+# 1. Verify project structure (debugging)
+- script: tree /F /A
+  displayName: 'Inspect project structure'
+
+# 2. Explicitly use .NET 8.0.404 (optional but recommended)
+- task: UseDotNet@2
+  displayName: 'Use .NET 8.0.404'
+  inputs:
+    version: '8.0.404'                    # Matches your installed version
+    performMultiLevelLookup: true         # Checks local cache first
+
+# 3. Restore dependencies
+- task: NuGetToolInstaller@1
+  displayName: 'Install NuGet'
+
+- task: NuGetCommand@2
+  displayName: 'Restore packages'
+  inputs:
+    restoreSolution: '$(solution)'
+
+# 4. Build projects in dependency order
+- task: DotNetCoreCLI@2
+  displayName: 'Build Contracts'
+  inputs:
+    command: 'build'
+    projects: '$(contractsProject)'
+    arguments: '--configuration $(buildConfiguration)'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build Application'
+  inputs:
+    command: 'build'
+    projects: '$(applicationProject)'
+    arguments: '--configuration $(buildConfiguration)'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build API'
+  inputs:
+    command: 'build'
+    projects: '$(apiProject)'
+    arguments: '--configuration $(buildConfiguration)'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+# 5. Run tests
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: 'test'
+    projects: '$(testProject)'
+    arguments: '--configuration $(buildConfiguration) --no-build --verbosity normal'
+    publishTestResults: true
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+# 6. Publish API (optional)
+- task: DotNetCoreCLI@2
+  displayName: 'Publish API'
+  inputs:
+    command: 'publish'
+    projects: '$(apiProject)'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
