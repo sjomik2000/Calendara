@@ -8,7 +8,6 @@ using Calendara.Application.Services;
 using Calendara.Contracts.Responses;
 using Calendara.Api.Mapping;
 using Calendara.Contracts.Requests;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Calendara.Api.Controller
 {
@@ -47,7 +46,7 @@ namespace Calendara.Api.Controller
             return Ok(response);
         }
 
-        [HttpGet("api/events/")]
+        [HttpGet("api/events/by-date")]
         public async Task<IActionResult> GetByDate(DateOnly date)
         {
             var eventItems = await _eventService.GetAllAsync();
@@ -60,7 +59,7 @@ namespace Calendara.Api.Controller
             return Ok(response);
         }
 
-        [HttpGet("api/events/")]
+        [HttpGet("api/events/by-date-range")]
         public async Task<IActionResult> GetByDateRange(DateOnly startDate, DateOnly endDate)
         {
             var eventItems = await _eventService.GetAllAsync();

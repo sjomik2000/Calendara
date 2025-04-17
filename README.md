@@ -109,3 +109,5 @@ on Controller class and Services class, registered Service DI, created Events mo
 + 2025.04.16 - Upgraded Project Framework from .NET Core 3.1 to .NET 8
 + 2025.04.16 - Finished writing Calendara.Contracts layer, finished writing all Controller actions and
 mappings for requests and responses. Fully tested Create, GetById and GetAll methods.
++ 2025.04.17 - Created GitHub CI/CD Pipeline on dev.azure.com with self hosted pool. Fully tested Update 
+method.

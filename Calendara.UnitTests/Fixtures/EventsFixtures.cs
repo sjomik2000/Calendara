@@ -135,6 +135,36 @@ namespace Calendara.UnitTests.Fixtures
             };
         }
 
+        public static Event GetTestFixture4()
+        {
+            return new Event
+            {
+                Id = new Guid("d1e36ce8-6db9-4cb0-b4bd-c4f4ac765922"),
+                Title = "Existing All-Day Event",
+                AllDay = true,
+                DateOnly = new DateOnly(2025, 12, 25),
+                StartDateTime = null,
+                EndDateTime = null,
+                Description = "This is an all-day event stored in the database.",
+                Location = new Coordinate(40.712776, -74.005974)
+            };
+        }
+
+        public static Event GetTestFixture5()
+        {
+            return new Event
+            {
+                Id = new Guid("e2f36ce8-6db9-4cb0-b4bd-c4f4ac765922"),
+                Title = "Existing Non-All-Day Event",
+                AllDay = false,
+                DateOnly = null,
+                StartDateTime = new DateTime(2025, 11, 15, 10, 0, 0),
+                EndDateTime = new DateTime(2025, 11, 15, 12, 0, 0),
+                Description = "This is a non-all-day event stored in the database.",
+                Location = new Coordinate(34.052235, -118.243683)
+            };
+        }
+
         public static EventResponse MappedEvent1()
         {
             return new EventResponse
@@ -244,10 +274,27 @@ namespace Calendara.UnitTests.Fixtures
                 Title = "Party Cancelled ;(",
                 AllDay = false,
                 DateOnly = null,
-                StartDateTime = null,
-                EndDateTime = null,
+                StartDateTime = new DateTime(2025, 05, 18, 21, 0, 0),
+                EndDateTime = new DateTime(2025, 05, 19, 03, 0, 0),
                 Description = "Contact manager",
                 Location = null
+            };
+        }
+
+        public static UpdateEventRequest UpdateEventRequestForFixture4()
+        {
+            return new UpdateEventRequest
+            {
+                Title = "Updated Event Title", 
+                Description = "Updated description for the event." 
+            };
+        }
+
+        public static UpdateEventRequest UpdateEventRequestForFixture5()
+        {
+            return new UpdateEventRequest
+            {
+                // Excluding all properties to simulate no changes
             };
         }
         public static Event UpdateTestFixtureExpectedForFixture1()
@@ -287,11 +334,43 @@ namespace Calendara.UnitTests.Fixtures
                 Title = "Party Cancelled ;(",
                 AllDay = false,
                 DateOnly = null,
-                StartDateTime = null,
-                EndDateTime = null,
+                StartDateTime = new DateTime(2025, 05, 18, 21, 0, 0),
+                EndDateTime = new DateTime(2025, 05, 19, 03, 0, 0),
                 Description = "Contact manager",
                 Location = null
             };
         }
+
+        public static Event UpdateTestFixtureExpectedForFixture4()
+        {
+            return new Event
+            {
+                Id = new Guid("d1e36ce8-6db9-4cb0-b4bd-c4f4ac765922"),
+                Title = "Updated Event Title",
+                AllDay = true,
+                DateOnly = new DateOnly(2025, 12, 25), 
+                StartDateTime = null,
+                EndDateTime = null,
+                Description = "Updated description for the event.",
+                Location = new Coordinate(40.712776, -74.005974)
+            };
+        }
+
+        public static Event UpdateTestFixtureExpectedForFixture5()
+        {
+            return new Event
+            {
+                Id = new Guid("e2f36ce8-6db9-4cb0-b4bd-c4f4ac765922"),
+                Title = "Existing Non-All-Day Event", 
+                AllDay = false,
+                DateOnly = null,
+                StartDateTime = new DateTime(2025, 11, 15, 10, 0, 0), 
+                EndDateTime = new DateTime(2025, 11, 15, 12, 0, 0), 
+                Description = "This is a non-all-day event stored in the database.", 
+                Location = new Coordinate(34.052235, -118.243683) 
+            };
+        }
+
+
     }
 }

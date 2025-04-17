@@ -51,8 +51,14 @@ namespace Calendara.Api.Mapping
                     DateOnly = request.DateOnly ?? eventItem.DateOnly,
                     StartDateTime = null,
                     EndDateTime = null,
-                    Description = request.Description ?? eventItem.Description,
-                    Location = request.Location ?? eventItem.Location
+                    Description = request.Description is null &&
+                               request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
+                               ? eventItem.Description
+                               : request.Description,
+                    Location = request.Location is null && 
+                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
+                               ? eventItem.Location
+                               : request.Location
                 };
             }
             else if (request.AllDay is null && eventItem.AllDay == true)
@@ -65,8 +71,14 @@ namespace Calendara.Api.Mapping
                     DateOnly = request.DateOnly ?? eventItem.DateOnly,
                     StartDateTime = null,
                     EndDateTime = null,
-                    Description = request.Description ?? eventItem.Description,
-                    Location = request.Location ?? eventItem.Location
+                    Description = request.Description is null &&
+                               request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
+                               ? eventItem.Description
+                               : request.Description,
+                    Location = request.Location is null &&
+                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
+                               ? eventItem.Location
+                               : request.Location
                 };
             }
             else if (request.AllDay == false)
@@ -79,8 +91,14 @@ namespace Calendara.Api.Mapping
                     DateOnly = null,
                     StartDateTime = request.StartDateTime ?? eventItem.StartDateTime,
                     EndDateTime = request.EndDateTime ?? eventItem.EndDateTime,
-                    Description = request.Description ?? eventItem.Description,
-                    Location = request.Location ?? eventItem.Location
+                    Description = request.Description is null &&
+                               request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
+                               ? eventItem.Description
+                               : request.Description,
+                    Location = request.Location is null &&
+                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
+                               ? eventItem.Location
+                               : request.Location
                 };
             }
             else if (request.AllDay is null && eventItem.AllDay == false)
@@ -93,8 +111,14 @@ namespace Calendara.Api.Mapping
                     DateOnly = null,
                     StartDateTime = request.StartDateTime ?? eventItem.StartDateTime,
                     EndDateTime = request.EndDateTime ?? eventItem.EndDateTime,
-                    Description = request.Description ?? eventItem.Description,
-                    Location = request.Location ?? eventItem.Location
+                    Description = request.Description is null &&
+                               request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
+                               ? eventItem.Description
+                               : request.Description,
+                    Location = request.Location is null &&
+                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
+                               ? eventItem.Location
+                               : request.Location
                 };
             }
             else

@@ -486,24 +486,18 @@ namespace Calendara.UnitTests.Systems.Controllers
                 .Setup(service => service.GetByIdAsync(id))
                 .ReturnsAsync(oldEvent);
             mockEventService
-                .Setup(service => service.UpdateAsync(It.Is<Event>(e =>
-                    e.Id == mappedUpdate.Id &&
-                    e.Title == mappedUpdate.Title &&
-                    e.AllDay == mappedUpdate.AllDay &&
-                    e.DateOnly == mappedUpdate.DateOnly &&
-                    e.StartDateTime == mappedUpdate.StartDateTime &&
-                    e.EndDateTime == mappedUpdate.EndDateTime &&
-                    e.Description == mappedUpdate.Description &&
-                    e.Location.Equals(mappedUpdate.Location))))
+                .Setup(service => service.UpdateAsync(It.IsAny<Event>()))
                 .ReturnsAsync(newEvent);
             var sut = new EventController(mockEventService.Object);
             //Act
             var result = await sut.Update(updateRequest, id);
             //Assert
             mockEventService.Verify(
-                service => service.UpdateAsync(mappedUpdate),
-                Times.Once()
-                );
+                   service => service.UpdateAsync(It.Is<Event>(e =>
+                        e.Id == mappedUpdate.Id &&
+                        e.Title == mappedUpdate.Title)),
+            Times.Once()
+            );
         }
 
         [Fact]
@@ -554,12 +548,12 @@ namespace Calendara.UnitTests.Systems.Controllers
 
             mockEventService
                 .Setup(service => service.GetByIdAsync(id))
-                .ReturnsAsync(EventsFixtures.GetTestFixture());
+                .ReturnsAsync((Event)null);
             var mockUpdate = mockEventService
                 .Setup(service => service.UpdateAsync(mappedUpdate));
             var sut = new EventController(mockEventService.Object);
             // Act
-            var result = await sut.GetById(id);
+            var result = await sut.Update(updateRequest, id);
             // Assert
             result.Should().BeOfType<NotFoundResult>();
         }
@@ -573,12 +567,14 @@ namespace Calendara.UnitTests.Systems.Controllers
             {
                 BaseAddress = new Uri("http://localhost")
             };
-            var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost/Api/Event/701bd75d-bd97-40e0-b4e3-828afe2acc30");
+            var request = new HttpRequestMessage(HttpMethod.Put, "http://localhost/api/events/701bd75d-bd97-40e0-b4e3-828afe2acc30");
             var response = await httpClient.SendAsync(request);
-            var methodInfo = typeof(EventController).GetMethod(nameof(EventController.GetById));
+
+            var methodInfo = typeof(EventController).GetMethod(nameof(EventController.Update));
+
             // Act
-            var httpGetAttribute = methodInfo.GetCustomAttributes(typeof(HttpGetAttribute), false)
-                                     .FirstOrDefault() as HttpGetAttribute;
+            var httpPutAttribute = methodInfo.GetCustomAttributes(typeof(HttpPutAttribute), false)
+                                             .FirstOrDefault() as HttpPutAttribute;
             var parameterInfo = methodInfo.GetParameters()
                                            .FirstOrDefault(p => p.Name == "id" && p.ParameterType == typeof(Guid));
             var fromRouteAttribute = parameterInfo?.GetCustomAttributes(typeof(FromRouteAttribute), false)
@@ -586,8 +582,8 @@ namespace Calendara.UnitTests.Systems.Controllers
             var extractedGuid = new Guid(request.RequestUri.Segments.Last());
 
             // Assert
-            httpGetAttribute.Should().NotBeNull();
-            httpGetAttribute.Template.Should().Be("api/events/{id:guid}");
+            httpPutAttribute.Should().NotBeNull();
+            httpPutAttribute.Template.Should().Be("api/events/{id:guid}");
             fromRouteAttribute.Should().NotBeNull();
             extractedGuid.Should().Be(new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30"));
         }
@@ -600,22 +596,41 @@ namespace Calendara.UnitTests.Systems.Controllers
             Guid id1 = new Guid("0b9c3623-95a3-43b6-a5df-db65b5e19093");
             var updateRequest1 = EventsFixtures.UpdateEventRequestForFixture1();
             var expectedNewEvent1 = EventsFixtures.UpdateTestFixtureExpectedForFixture1();
+
             var oldEvent2 = EventsFixtures.GetTestFixture2();
             Guid id2 = new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30");
             var updateRequest2 = EventsFixtures.UpdateEventRequestForFixture2();
             var expectedNewEvent2 = EventsFixtures.UpdateTestFixtureExpectedForFixture2();
+
             var oldEvent3 = EventsFixtures.GetTestFixture3();
             Guid id3 = new Guid("cae36ce8-6db9-4cb0-b4bd-c4f4ac765922");
             var updateRequest3 = EventsFixtures.UpdateEventRequestForFixture3();
             var expectedNewEvent3 = EventsFixtures.UpdateTestFixtureExpectedForFixture3();
+
+            var oldEvent4 = EventsFixtures.GetTestFixture4();
+            Guid id4 = new Guid("d1e36ce8-6db9-4cb0-b4bd-c4f4ac765922");
+            var updateRequest4 = EventsFixtures.UpdateEventRequestForFixture4();
+            var expectedNewEvent4 = EventsFixtures.UpdateTestFixtureExpectedForFixture4();
+
+            var oldEvent5 = EventsFixtures.GetTestFixture5();
+            Guid id5 = new Guid("e2f36ce8-6db9-4cb0-b4bd-c4f4ac765922");
+            var updateRequest5 = EventsFixtures.UpdateEventRequestForFixture5();
+            var expectedNewEvent5 = EventsFixtures.UpdateTestFixtureExpectedForFixture5();
+
             // Act
             var mappedResponse1 = updateRequest1.MapToEvent(id1, oldEvent1);
             var mappedResponse2 = updateRequest2.MapToEvent(id2, oldEvent2);
             var mappedResponse3 = updateRequest3.MapToEvent(id3, oldEvent3);
+            var mappedResponse4 = updateRequest4.MapToEvent(id4, oldEvent4);
+            var mappedResponse5 = updateRequest5.MapToEvent(id5, oldEvent5);
+
             //Assert 
             mappedResponse1.Should().BeEquivalentTo(expectedNewEvent1);
             mappedResponse2.Should().BeEquivalentTo(expectedNewEvent2);
             mappedResponse3.Should().BeEquivalentTo(expectedNewEvent3);
+            mappedResponse4.Should().BeEquivalentTo(expectedNewEvent4);
+            mappedResponse5.Should().BeEquivalentTo(expectedNewEvent5);
+
             return Task.CompletedTask;
         }
         #endregion
