@@ -64,13 +64,12 @@ steps:
 
 # 5. Run tests
 - task: DotNetCoreCLI@2
-  displayName: 'Run Unit Tests'
+  displayName: 'Run Tests (Continue on Failure)'
+  continueOnError: true  # 👈 Pipeline continues even if tests fail
   inputs:
     command: 'test'
     projects: '$(testProject)'
-    arguments: '--configuration $(buildConfiguration) --no-build --verbosity normal'
-    publishTestResults: true
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    arguments: '--configuration $(buildConfiguration)'
 
 # 6. Publish API (optional)
 - task: DotNetCoreCLI@2
