@@ -91,8 +91,21 @@ Azure DevOps pipelines ensure automated quality control:
      
 ## 3. Tasklist
 - [x] Create a GitHub repository.
-- [ ] 
+- [x] Create controller
+- [ ] Write response and request contracts
+- [ ] Mapping
+- [ ] Api Endpoints
+- [ ] Service Layer 
+- [ ] Database Layer 
+- [ ] PostgreSQL config
+- [ ] EF core Code first init
+- [ ] Validation
 
 ## 4. ChangeLog
 + 2025.04.14 - Created GitHub repository, added .gitignore and modeled project structure and features,
 created README.MD with project breakdown.
++ 2025.04.15 - Created API, Application, Contracts and UnitTests base layers, started working 
+on Controller class and Services class, registered Service DI, created Events model and 5 UnitTests.  
++ 2025.04.16 - Upgraded Project Framework from .NET Core 3.1 to .NET 8
++ 2025.04.16 - Finished writing Calendara.Contracts layer, finished writing all Controller actions and
+mappings for requests and responses. Fully tested Create, GetById and GetAll methods.
