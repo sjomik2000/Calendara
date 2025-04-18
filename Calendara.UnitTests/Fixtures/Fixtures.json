@@ -1,0 +1,307 @@
+﻿{
+  "createEventRequests": [
+    {
+      "name": "CreateEventRequest1",
+      "data": {
+        "title": "Sample Event 1",
+        "allDay": false,
+        "startDateTime": "2025-10-15T13:00:00",
+        "endDateTime": "2025-10-15T14:00:00",
+        "description": "This is a sample event 1.",
+        "location": {
+          "x": 52.477973735285154,
+          "y": -1.8987571127313878
+        }
+      }
+    },
+    {
+      "name": "CreateEventRequest2",
+      "data": {
+        "title": "Sample Event 2",
+        "allDay": true,
+        "dateOnly": "2025-10-15",
+        "description": "This is another sample event.",
+        "location": {
+          "x": 51.50084938904448,
+          "y": -0.124582486769179
+        }
+      }
+    },
+    {
+      "name": "CreateEventRequest3",
+      "data": {
+        "title": "Party!",
+        "allDay": false,
+        "startDateTime": "2025-05-18T21:00:00",
+        "endDateTime": "2025-05-19T03:00:00"
+      }
+    }
+  ],
+  "eventFixtures": [
+    {
+      "name": "TestFixture1",
+      "data": {
+        "title": "Sample Event 1",
+        "allDay": false,
+        "startDateTime": "2025-10-15T13:00:00",
+        "endDateTime": "2025-10-15T14:00:00",
+        "description": "This is a sample event 1.",
+        "location": {
+          "x": 52.477973735285154,
+          "y": -1.8987571127313878
+        }
+      }
+    },
+    {
+      "name": "TestFixture2",
+      "data": {
+        "title": "Sample Event 2",
+        "allDay": true,
+        "dateOnly": "2025-10-15",
+        "description": "This is another sample event.",
+        "location": {
+          "x": 51.50084938904448,
+          "y": -0.124582486769179
+        }
+      }
+    },
+    {
+      "name": "TestFixture3",
+      "data": {
+        "title": "Party!",
+        "allDay": false,
+        "startDateTime": "2025-05-18T21:00:00",
+        "endDateTime": "2025-05-19T03:00:00"
+      }
+    },
+    {
+      "name": "TestFixture4",
+      "data": {
+        "title": "Existing All-Day Event",
+        "allDay": true,
+        "dateOnly": "2025-12-25",
+        "description": "This is an all-day event stored in the database.",
+        "location": {
+          "x": 40.712776,
+          "y": -74.005974
+        }
+      }
+    },
+    {
+      "name": "TestFixture5",
+      "data": {
+        "title": "Existing Non-All-Day Event",
+        "allDay": false,
+        "startDateTime": "2025-11-15T10:00:00",
+        "endDateTime": "2025-11-15T12:00:00",
+        "description": "This is a non-all-day event stored in the database.",
+        "location": {
+          "x": 34.052235,
+          "y": -118.243683
+        }
+      }
+    },
+    {
+      "name": "TestFixture6",
+      "data": {
+        "title": "Single-Day Event",
+        "allDay": true,
+        "dateOnly": "2025-12-25",
+        "description": "Christmas Day Event",
+        "location": {
+          "x": 10,
+          "y": 20
+        }
+      }
+    },
+    {
+      "name": "TestFixture7",
+      "data": {
+        "title": "Multi-Day Event",
+        "allDay": false,
+        "startDateTime": "2025-12-24T18:00:00",
+        "endDateTime": "2025-12-26T06:00:00",
+        "description": "Christmas Eve to Boxing Day",
+        "location": {
+          "x": 30,
+          "y": 40
+        }
+      }
+    },
+    {
+      "name": "TestFixture8",
+      "data": {
+        "title": "Event Within Range",
+        "allDay": true,
+        "dateOnly": "2025-12-20",
+        "description": "Event happening on a single day within the range.",
+        "location": {
+          "x": 10,
+          "y": 20
+        }
+      }
+    },
+    {
+      "name": "TestFixture9",
+      "data": {
+        "title": "Event Spanning Range",
+        "allDay": false,
+        "startDateTime": "2025-12-19T18:00:00",
+        "endDateTime": "2025-12-21T06:00:00",
+        "description": "Event spanning multiple days within the range.",
+        "location": {
+          "x": 30,
+          "y": 40
+        }
+      }
+    },
+    {
+      "name": "TestFixture10",
+      "data": {
+        "title": "Event Outside Range",
+        "allDay": false,
+        "startDateTime": "2025-12-25T18:00:00",
+        "endDateTime": "2025-12-26T06:00:00",
+        "description": "Event happening completely outside the range.",
+        "location": {
+          "x": 50,
+          "y": 60
+        }
+      }
+    }
+  ],
+  "updateEventRequests": [
+    {
+      "name": "UpdateRequest1",
+      "data": {
+        "title": "Sample Event 2",
+        "allDay": true,
+        "dateOnly": "2025-10-15",
+        "description": "This is another sample event.",
+        "location": {
+          "x": 51.50084938904448,
+          "y": -0.124582486769179
+        }
+      }
+    },
+    {
+      "name": "UpdateRequest2",
+      "data": {
+        "title": "Sample Event 1",
+        "allDay": false,
+        "startDateTime": "2025-10-15T13:00:00",
+        "endDateTime": "2025-10-15T14:00:00",
+        "description": "This is a sample event 1.",
+        "location": {
+          "x": 52.477973735285154,
+          "y": -1.8987571127313878
+        }
+      }
+    },
+    {
+      "name": "UpdateRequest3",
+      "data": {
+        "title": "Party Cancelled ;(",
+        "allDay": false,
+        "startDateTime": "2025-05-18T21:00:00",
+        "endDateTime": "2025-05-19T03:00:00",
+        "description": "Contact manager"
+      }
+    },
+    {
+      "name": "UpdateRequest4",
+      "data": {
+        "title": "Updated Event Title",
+        "description": "Updated description for the event."
+      }
+    },
+    {
+      "name": "EmptyUpdateRequest",
+      "data": {}
+    }
+  ],
+  "invalidEventFixtures": [
+    {
+      "name": "EmptyTitleEvent",
+      "data": {
+        "title": "",
+        "allDay": false,
+        "startDateTime": "2025-04-19T13:00:00",
+        "endDateTime": "2025-04-19T14:00:00",
+        "description": "Event with empty title"
+      }
+    },
+    {
+      "name": "LongTitleEvent",
+      "data": {
+        "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "allDay": false,
+        "startDateTime": "2025-04-19T13:00:00",
+        "endDateTime": "2025-04-19T14:00:00",
+        "description": "Event with too long title"
+      }
+    },
+    {
+      "name": "MissingDateOnlyForAllDay",
+      "data": {
+        "title": "Invalid All-Day Event",
+        "allDay": true,
+        "description": "All-day event missing date"
+      }
+    },
+    {
+      "name": "DateOnlyForNonAllDay",
+      "data": {
+        "title": "Invalid Non-All-Day Event",
+        "allDay": false,
+        "dateOnly": "2025-04-19",
+        "startDateTime": "2025-04-19T13:00:00",
+        "endDateTime": "2025-04-19T14:00:00"
+      }
+    },
+    {
+      "name": "MissingStartDateTime",
+      "data": {
+        "title": "Invalid Event Missing Start",
+        "allDay": false,
+        "endDateTime": "2025-04-19T14:00:00"
+      }
+    },
+    {
+      "name": "MissingEndDateTime",
+      "data": {
+        "title": "Invalid Event Missing End",
+        "allDay": false,
+        "startDateTime": "2025-04-19T13:00:00"
+      }
+    },
+    {
+      "name": "EndBeforeStart",
+      "data": {
+        "title": "Invalid Event End Before Start",
+        "allDay": false,
+        "startDateTime": "2025-04-19T15:00:00",
+        "endDateTime": "2025-04-19T13:00:00"
+      }
+    },
+    {
+      "name": "TooLongDuration",
+      "data": {
+        "title": "Invalid Event Too Long",
+        "allDay": false,
+        "startDateTime": "2025-04-19T13:00:00",
+        "endDateTime": "2025-04-27T13:00:00"
+      }
+    }
+  ],
+  "specialQueries": [
+    {
+      "name": "GetByDateQuery",
+      "url": "api/events/by-date?date=2025-12-25"
+    },
+    {
+      "name": "GetByDateRangeQuery",
+      "url": "api/events/by-date-range?startDate=2025-12-19&endDate=2025-12-26"
+    }
+  ]
+}

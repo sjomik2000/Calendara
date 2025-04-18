@@ -1,4 +1,6 @@
 ﻿using Calendara.Application.Models;
+using Calendara.Application.Repositories;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,43 +10,45 @@ namespace Calendara.Application.Services
 {
     public class EventService : IEventService
     {
-        public EventService()
+        private readonly IEventRepository _eventRepository;
+        private readonly IValidator<Event> _eventValidator;
+        public EventService(IEventRepository eventRepository, IValidator<Event> eventValidator)
         {
+            _eventRepository = eventRepository;
+            _eventValidator = eventValidator;
 
         }
-        public Task<bool> CreateAsync(Event eventItem)
+        public async Task<bool> CreateAsync(Event eventItem)
         {
-            throw new NotImplementedException();
+            await _eventValidator.ValidateAndThrowAsync(eventItem);
+            return await _eventRepository.CreateAsync(eventItem);
         }
 
         public Task<bool> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return _eventRepository.DeleteByIdAsync(id);
         }
 
         public Task<IEnumerable<Event>> GetAllAsync()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Event>> GetByDateAsync(DateTime date)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Event>> GetByDateRangeAsync(DateTime dateStart, DateTime dateEnd)
-        {
-            throw new NotImplementedException();
+            return _eventRepository.GetAllAsync();
         }
 
         public Task<Event?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return _eventRepository.GetByIdAsync(id);
         }
 
         public async Task<Event?> UpdateAsync(Event eventItem)
         {
-            throw new NotImplementedException();
+            await _eventValidator.ValidateAndThrowAsync(eventItem);
+            var exists = await _eventRepository.ExistsByIdAsync(eventItem.Id);
+            if (!exists)
+            {
+                return null;
+            }
+            await _eventRepository.UpdateAsync(eventItem);
+            return eventItem;
         }
     }
 }

@@ -8,6 +8,6 @@ namespace Calendara.Contracts.Responses
 {
     public class EventsResponse
     {
-        IEnumerable<EventResponse> events { get; set; } = Enumerable.Empty<EventResponse>();
+        public required IEnumerable<EventResponse> Events { get; init; } = Enumerable.Empty<EventResponse>();
     }
 }

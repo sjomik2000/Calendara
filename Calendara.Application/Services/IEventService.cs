@@ -13,10 +13,6 @@ namespace Calendara.Application.Services
 
         Task<IEnumerable<Event>> GetAllAsync();
 
-        Task<IEnumerable<Event>> GetByDateRangeAsync(DateTime dateStart, DateTime dateEnd);
-
-        Task<IEnumerable<Event>> GetByDateAsync(DateTime date);
-
         Task<Event?> UpdateAsync(Event eventItem);
 
         Task<bool> DeleteAsync(Guid id);

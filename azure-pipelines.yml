@@ -10,68 +10,72 @@ pool: my-personal-computer
 variables:
   buildConfiguration: 'Release'
   buildPlatform: 'Any CPU'
-  solution: '**/Calendara.Api.sln'                    # Update if your solution is in a subfolder
-  apiProject: '**/Calendara.Api.csproj'        # Confirm exact path
+  solution: '**/Calendara.Api.sln'
+  apiProject: '**/Calendara.Api.csproj'
   applicationProject: '**/Calendara.Application.csproj'
   contractsProject: '**/Calendara.Contracts.csproj'
   testProject: '**/Calendara.UnitTests.csproj'
 
 steps:
-# 1. Verify project structure (debugging)
-- script: tree /F /A
-  displayName: 'Inspect project structure'
+# 1. Debug info
+- script: |
+    echo Current directory:
+    pwd
+    echo Directory contents:
+    dir /s /b
+  displayName: 'Debug - List Directory Structure'
 
-# 2. Explicitly use .NET 8.0.404 (optional but recommended)
+# 2. .NET SDK Setup
 - task: UseDotNet@2
-  displayName: 'Use .NET 8.0.404'
+  displayName: 'Install .NET SDK'
   inputs:
-    version: '8.0.404'                    # Matches your installed version
-    performMultiLevelLookup: true         # Checks local cache first
+    packageType: 'sdk'
+    version: '8.0.404'
+    includePreviewVersions: false
 
-# 3. Restore dependencies
-- task: NuGetToolInstaller@1
-  displayName: 'Install NuGet'
+# 3. Clear NuGet cache and restore
+- script: dotnet nuget locals all --clear
+  displayName: 'Clear NuGet Cache'
 
-- task: NuGetCommand@2
-  displayName: 'Restore packages'
+- task: DotNetCoreCLI@2
+  displayName: 'Restore Solution'
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    projects: '$(solution)'
+    feedsToUse: 'select'
 
-# 4. Build projects in dependency order
+# 4. Build projects with detailed logging
 - task: DotNetCoreCLI@2
   displayName: 'Build Contracts'
   inputs:
     command: 'build'
     projects: '$(contractsProject)'
-    arguments: '--configuration $(buildConfiguration)'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    arguments: '--configuration $(buildConfiguration) -v:detailed'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build Application'
   inputs:
     command: 'build'
     projects: '$(applicationProject)'
-    arguments: '--configuration $(buildConfiguration)'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    arguments: '--configuration $(buildConfiguration) -v:detailed'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build API'
   inputs:
     command: 'build'
     projects: '$(apiProject)'
-    arguments: '--configuration $(buildConfiguration)'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    arguments: '--configuration $(buildConfiguration) -v:detailed'
 
 # 5. Run tests
 - task: DotNetCoreCLI@2
-  displayName: 'Run Tests (Continue on Failure)'
-  continueOnError: true  # 👈 Pipeline continues even if tests fail
+  displayName: 'Run Tests'
   inputs:
     command: 'test'
     projects: '$(testProject)'
     arguments: '--configuration $(buildConfiguration)'
+    publishTestResults: true
 
-# 6. Publish API (optional)
+# 6. Publish
 - task: DotNetCoreCLI@2
   displayName: 'Publish API'
   inputs:
@@ -79,4 +83,3 @@ steps:
     projects: '$(apiProject)'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
-    workingDirectory: '$(System.DefaultWorkingDirectory)'

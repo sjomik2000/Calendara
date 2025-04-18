@@ -17,6 +17,6 @@ namespace Calendara.Contracts.Responses
 
         public DateOnly? DateOnly { get; init; }
         public string Description { get; init; }
-        public Coordinate Location { get; init; }
+        public CoordinateResponse Location { get; init; }
     }
 }

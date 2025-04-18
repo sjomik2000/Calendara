@@ -19,6 +19,8 @@ using System.Net.Http.Json;
 using System.Net;
 using Moq.Protected;
 using System.Threading;
+using Microsoft.Extensions.Logging;
+using Calendara.Contracts.Responses;
 
 namespace Calendara.UnitTests.Systems.Controllers
 {
@@ -179,12 +181,14 @@ namespace Calendara.UnitTests.Systems.Controllers
         {
             // Arrange
             var methodInfo = typeof(EventController).GetMethod(nameof(EventController.Create));
+
             // Act
             var httpPostAttribute = methodInfo.GetCustomAttributes(typeof(HttpPostAttribute), false)
                                      .FirstOrDefault() as HttpPostAttribute;
+
             // Assert
             httpPostAttribute.Should().NotBeNull();
-            httpPostAttribute.Template.Should().Be("api/events/");
+            httpPostAttribute.Template.Should().BeNull();
             return Task.CompletedTask;
         }
         [Fact]
@@ -327,7 +331,7 @@ namespace Calendara.UnitTests.Systems.Controllers
 
             // Assert
             httpGetAttribute.Should().NotBeNull();
-            httpGetAttribute.Template.Should().Be("api/events/{id:guid}");
+            httpGetAttribute.Template.Should().Be("{id:guid}");
             fromRouteAttribute.Should().NotBeNull();
             extractedGuid.Should().Be(new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30"));
         }
@@ -391,11 +395,16 @@ namespace Calendara.UnitTests.Systems.Controllers
         {
             //Arrange
             var mockEventService = new Mock<IEventService>();
+            var events = EventsFixtures.GetAllTestFixtures();
+            var expectedResponse = new EventsResponse
+            {
+                Events = events.Select(e => e.MapToResponse())
+            };
+
             mockEventService
                 .Setup(service => service.GetAllAsync())
-                .ReturnsAsync(EventsFixtures.GetAllTestFixtures());
-            var expectedEvent = EventsFixtures.GetAllTestFixtures();
-            var expectedResponse = EventsFixtures.MappedAllEvents();
+                .ReturnsAsync(events);
+
             var sut = new EventController(mockEventService.Object);
             // Act
             var result = await sut.GetAll();
@@ -408,7 +417,7 @@ namespace Calendara.UnitTests.Systems.Controllers
 
         [Fact]
         
-        public async Task GetAll_HasHttpGetAttribute()
+        public Task GetAll_HasHttpGetAttribute()
         {
             // Arrange
             var methodInfo = typeof(EventController).GetMethod(nameof(EventController.GetAll));
@@ -417,7 +426,8 @@ namespace Calendara.UnitTests.Systems.Controllers
                                      .FirstOrDefault() as HttpGetAttribute;
             // Assert
             httpGetAttribute.Should().NotBeNull();
-            httpGetAttribute.Template.Should().Be("api/events");
+            httpGetAttribute.Template.Should().BeNull();
+            return Task.CompletedTask;
         } 
 
         [Fact]
@@ -425,14 +435,230 @@ namespace Calendara.UnitTests.Systems.Controllers
         {
             // Arrange
             var expectedEvents = EventsFixtures.GetAllTestFixtures();
-            var expectedResponse = EventsFixtures.MappedAllEvents();
+            var expectedResponses = new EventsResponse
+            {
+                Events = expectedEvents.Select(e => e.MapToResponse())
+            };
             // Act
-            var mappedResponse = expectedEvents.Select(x => x.MapToResponse());
+            var mappedResponse = expectedEvents.MapToResponse();
             //Assert 
-            mappedResponse.Should().BeEquivalentTo(expectedResponse, options => options.ExcludingMissingMembers());
+            mappedResponse.Should().BeEquivalentTo(expectedResponses, options => options.ExcludingMissingMembers());
 
             return Task.CompletedTask;
 
+        }
+        #endregion
+        #region GetByDate
+        [Fact]
+        public async Task GetByDate_OnSuccess_ReturnsStatusCode200()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>{
+                EventsFixtures.GetTestFixture6(),
+                EventsFixtures.GetTestFixture7()
+            };
+            var date = new DateOnly(2025, 12, 25);
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = (OkObjectResult)await sut.GetByDate(date);
+
+            // Assert
+            result.StatusCode.Should().Be(200);
+        }
+
+        [Fact]
+        public async Task GetByDate_OnSuccess_ActionsEventService()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event> { 
+                EventsFixtures.GetTestFixture6(),
+                EventsFixtures.GetTestFixture7()
+            };
+            var date = new DateOnly(2025, 12, 25);
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = await sut.GetByDate(date);
+
+            // Assert
+            mockEventService.Verify(service => service.GetAllAsync(), Times.Once());
+        }
+
+        [Fact]
+        public async Task GetByDate_OnSuccess_Returns_FilteredEvents()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>{
+                EventsFixtures.GetTestFixture6(),
+                EventsFixtures.GetTestFixture7()
+            };
+            var date = new DateOnly(2025, 12, 25);
+
+            var expectedResponses = new List<EventResponse>{
+                EventsFixtures.GetTestFixture6().MapToResponse(),
+                EventsFixtures.GetTestFixture7().MapToResponse()
+            };
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = (OkObjectResult)await sut.GetByDate(date);
+
+            // Assert
+            result.Should().BeOfType<OkObjectResult>();
+            var objectResult = (OkObjectResult)result;
+            objectResult.Value.Should().BeEquivalentTo(expectedResponses, options => options.ExcludingMissingMembers());
+        }
+
+        [Fact]
+        public async Task GetByDate_OnNoEventsFound_ReturnsEmptyList()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>();
+            var date = new DateOnly(2025, 12, 25);
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = (OkObjectResult)await sut.GetByDate(date);
+
+            // Assert
+            result.Should().BeOfType<OkObjectResult>();
+            var objectResult = (OkObjectResult)result;
+            objectResult.Value.Should().BeEquivalentTo(new List<EventResponse>());
+        }
+        #endregion
+        #region GetByDateRange
+        [Fact]
+        public async Task GetByDateRange_OnSuccess_ReturnsStatusCode200()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>{
+                EventsFixtures.GetTestFixture8(),
+                EventsFixtures.GetTestFixture9(),
+                EventsFixtures.GetTestFixture10()
+            };
+            var startDate = new DateOnly(2025, 12, 19);
+            var endDate = new DateOnly(2025, 12, 21);
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = (OkObjectResult)await sut.GetByDateRange(startDate, endDate);
+
+            // Assert
+            result.StatusCode.Should().Be(200);
+        }
+
+        [Fact]
+        public async Task GetByDateRange_OnSuccess_ActionsEventService()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>{
+                EventsFixtures.GetTestFixture8(),
+                EventsFixtures.GetTestFixture9(),
+                EventsFixtures.GetTestFixture10()
+            };
+            var startDate = new DateOnly(2025, 12, 19);
+            var endDate = new DateOnly(2025, 12, 21);
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = await sut.GetByDateRange(startDate, endDate);
+
+            // Assert
+            mockEventService.Verify(service => service.GetAllAsync(), Times.Once());
+        }
+
+        [Fact]
+        public async Task GetByDateRange_OnSuccess_Returns_FilteredEvents()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>{
+                EventsFixtures.GetTestFixture8(),
+                EventsFixtures.GetTestFixture9(),
+                EventsFixtures.GetTestFixture10()
+            };
+            var startDate = new DateOnly(2025, 12, 19);
+            var endDate = new DateOnly(2025, 12, 21);
+
+            var expectedResponses = new List<EventResponse>{
+                EventsFixtures.GetTestFixture8().MapToResponse(),
+                EventsFixtures.GetTestFixture9().MapToResponse()
+            };
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = (OkObjectResult)await sut.GetByDateRange(startDate, endDate);
+
+            // Assert
+            result.Should().BeOfType<OkObjectResult>();
+            var objectResult = (OkObjectResult)result;
+            objectResult.Value.Should().BeEquivalentTo(expectedResponses, options => options.ExcludingMissingMembers());
+        }
+
+        [Fact]
+        public async Task GetByDateRange_OnNoEventsFound_ReturnsEmptyList()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var events = new List<Event>(); 
+            var startDate = new DateOnly(2025, 12, 19);
+            var endDate = new DateOnly(2025, 12, 21);
+
+            mockEventService
+                .Setup(service => service.GetAllAsync())
+                .ReturnsAsync(events);
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = (OkObjectResult)await sut.GetByDateRange(startDate, endDate);
+
+            // Assert
+            result.Should().BeOfType<OkObjectResult>();
+            var objectResult = (OkObjectResult)result;
+            objectResult.Value.Should().BeEquivalentTo(new List<EventResponse>());
         }
         #endregion
         #region Update
@@ -532,7 +758,7 @@ namespace Calendara.UnitTests.Systems.Controllers
             // Assert
             result.Should().BeOfType<OkObjectResult>();
             var objectResult = (OkObjectResult)result;
-            objectResult.Value.Should().BeEquivalentTo(newEvent);
+            objectResult.Value.Should().BeEquivalentTo(newEvent.MapToResponse());
         }
 
         [Fact]
@@ -583,7 +809,7 @@ namespace Calendara.UnitTests.Systems.Controllers
 
             // Assert
             httpPutAttribute.Should().NotBeNull();
-            httpPutAttribute.Template.Should().Be("api/events/{id:guid}");
+            httpPutAttribute.Template.Should().Be("{id:guid}");
             fromRouteAttribute.Should().NotBeNull();
             extractedGuid.Should().Be(new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30"));
         }
@@ -632,6 +858,77 @@ namespace Calendara.UnitTests.Systems.Controllers
             mappedResponse5.Should().BeEquivalentTo(expectedNewEvent5);
 
             return Task.CompletedTask;
+        }
+        #endregion
+        #region Delete
+        [Fact]
+        public async Task Delete_OnSuccess_ReturnsStatusCode200()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var id = new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30"); 
+
+            mockEventService
+                .Setup(service => service.GetByIdAsync(id))
+                .ReturnsAsync(EventsFixtures.GetTestFixture()); 
+            mockEventService
+                .Setup(service => service.DeleteAsync(id))
+                .ReturnsAsync(true); 
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = await sut.Delete(id);
+
+            // Assert
+            result.Should().BeOfType<OkResult>();
+        }
+
+        [Fact]
+        public async Task Delete_OnNoEventFound_ReturnsStatusCode404()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var id = new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30"); 
+
+            mockEventService
+                .Setup(service => service.GetByIdAsync(id))
+                .ReturnsAsync((Event)null); 
+            mockEventService
+                .Setup(service => service.DeleteAsync(id))
+                .ReturnsAsync(false); 
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = await sut.Delete(id);
+
+            // Assert
+            result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [Fact]
+        public async Task Delete_OnSuccess_ActionsEventService()
+        {
+            // Arrange
+            var mockEventService = new Mock<IEventService>();
+            var id = new Guid("701bd75d-bd97-40e0-b4e3-828afe2acc30"); 
+
+            mockEventService
+                .Setup(service => service.GetByIdAsync(id))
+                .ReturnsAsync(EventsFixtures.GetTestFixture()); 
+            mockEventService
+                .Setup(service => service.DeleteAsync(id))
+                .ReturnsAsync(true); 
+
+            var sut = new EventController(mockEventService.Object);
+
+            // Act
+            var result = await sut.Delete(id);
+
+            // Assert
+            mockEventService.Verify(service => service.GetByIdAsync(id), Times.Once());
+            mockEventService.Verify(service => service.DeleteAsync(id), Times.Once());
         }
         #endregion
     }
