@@ -3,6 +3,9 @@ using Calendara.Contracts.Responses;
 using Calendara.Contracts.Requests;
 using NetTopologySuite.Geometries;
 using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Calendara.Api.Mapping
 {
@@ -136,7 +139,9 @@ namespace Calendara.Api.Mapping
                     AllDay = eventItem.AllDay,
                     DateOnly = eventItem.DateOnly,
                     Description = eventItem.Description,
-                    Location = eventItem.Location
+                    Location = eventItem.Location != null
+                        ? new CoordinateResponse { X = eventItem.Location.X, Y = eventItem.Location.Y }
+                        : null
                 };
             else
             {
@@ -148,9 +153,19 @@ namespace Calendara.Api.Mapping
                     StartDateTime = eventItem.StartDateTime,
                     EndDateTime = eventItem.EndDateTime,
                     Description = eventItem.Description,
-                    Location = eventItem.Location
+                    Location = eventItem.Location != null
+                        ? new CoordinateResponse { X = eventItem.Location.X, Y = eventItem.Location.Y }
+                        : null
                 };  
             }
+        }
+
+        public static EventsResponse MapToResponse(this IEnumerable<Event> eventItems)
+        {
+            return new EventsResponse
+            {
+                Events = eventItems.Select(MapToResponse)
+            };
         }
         
     }

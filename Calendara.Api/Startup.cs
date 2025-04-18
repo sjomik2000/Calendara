@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
+using Calendara.Api.Mapping;
 using Calendara.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,15 @@ namespace Calendara.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    //Fixes bug when sending coordinates in JSON body
+                    options.JsonSerializerOptions.NumberHandling = 
+                        System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals;
+                    options.JsonSerializerOptions.ReferenceHandler =
+                        System.Text.Json.Serialization.ReferenceHandler.Preserve;
+                });
             services.AddApplication();
         }
 
@@ -45,6 +54,8 @@ namespace Calendara.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ValidationMappingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

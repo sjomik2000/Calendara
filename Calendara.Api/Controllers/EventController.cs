@@ -12,7 +12,7 @@ using Calendara.Contracts.Requests;
 namespace Calendara.Api.Controller
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/events")]
     public class EventController : ControllerBase
     {
         private readonly IEventService _eventService;
@@ -21,12 +21,7 @@ namespace Calendara.Api.Controller
             _eventService = eventService;
         }
 
-        public EventController()
-        {
-
-        }
-
-        [HttpPost("api/events/")]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody]CreateEventRequest request)
         {
             var eventItem = request.MapToEvent();
@@ -34,7 +29,7 @@ namespace Calendara.Api.Controller
             return CreatedAtAction(nameof(GetById), new { id = eventItem.Id }, eventItem);
         }
 
-        [HttpGet("api/events/{id:guid}")]
+        [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetById([FromRoute]Guid id)
         {
             var eventItem = await _eventService.GetByIdAsync(id);
@@ -46,7 +41,7 @@ namespace Calendara.Api.Controller
             return Ok(response);
         }
 
-        [HttpGet("api/events/by-date")]
+        [HttpGet("by-date")]
         public async Task<IActionResult> GetByDate(DateOnly date)
         {
             var eventItems = await _eventService.GetAllAsync();
@@ -59,7 +54,7 @@ namespace Calendara.Api.Controller
             return Ok(response);
         }
 
-        [HttpGet("api/events/by-date-range")]
+        [HttpGet("by-date-range")]
         public async Task<IActionResult> GetByDateRange(DateOnly startDate, DateOnly endDate)
         {
             var eventItems = await _eventService.GetAllAsync();
@@ -73,15 +68,15 @@ namespace Calendara.Api.Controller
             return Ok(response);
         }
 
-        [HttpGet("api/events")]
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var eventItems = await _eventService.GetAllAsync();
-            var response = eventItems.Select(x => x.MapToResponse());
-            return Ok(response);
+            var eventsResponse = eventItems.MapToResponse();
+            return Ok(eventsResponse);
         }
 
-        [HttpPut("api/events/{id:guid}")]
+        [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update([FromBody]UpdateEventRequest request, [FromRoute] Guid id)
         {
             var eventItem = await _eventService.GetByIdAsync(id);
@@ -95,7 +90,7 @@ namespace Calendara.Api.Controller
             return Ok(response);
         }
 
-        [HttpDelete("api/events/{id:guid}")]
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var eventItem = await _eventService.GetByIdAsync(id);
