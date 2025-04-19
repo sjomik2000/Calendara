@@ -7,7 +7,6 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
-    <PackageReference Include="NetTopologySuite" Version="2.6.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />

@@ -85,7 +85,7 @@ namespace Calendara.Application.Validators
 
             // Location validation
             RuleFor(x => x.Location)
-                .Must(location => location.X >= -180 && location.X <= 180 && location.Y >= -90 && location.Y <= 90)
+                .Must(location => location.Latitude >= -180 && location.Latitude <= 180 && location.Longitude >= -90 && location.Longitude <= 90)
                 .When(x => x.Location != null)
                 .WithMessage("Location must have valid latitude and longitude values.");
 

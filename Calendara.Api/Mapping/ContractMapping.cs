@@ -1,7 +1,6 @@
 ﻿using Calendara.Application.Models;
 using Calendara.Contracts.Responses;
 using Calendara.Contracts.Requests;
-using NetTopologySuite.Geometries;
 using System;
 using System.Linq;
 using System.Collections;
@@ -24,7 +23,9 @@ namespace Calendara.Api.Mapping
                     StartDateTime = null,
                     EndDateTime = null,
                     Description = request.Description ?? string.Empty,
-                    Location = request.Location ?? new Coordinate(0, 0)
+                    Location = request.Location != null 
+                        ? new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
+                        : null
                 };
             }
             else
@@ -38,7 +39,9 @@ namespace Calendara.Api.Mapping
                     StartDateTime = request.StartDateTime,
                     EndDateTime = request.EndDateTime,
                     Description = request.Description ?? string.Empty,
-                    Location = request.Location ?? new Coordinate(0, 0)
+                    Location = request.Location != null
+                        ? new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
+                        : null
                 };
             }
         }
@@ -61,7 +64,7 @@ namespace Calendara.Api.Mapping
                     Location = request.Location is null && 
                                request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
                                ? eventItem.Location
-                               : request.Location
+                               : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
             else if (request.AllDay is null && eventItem.AllDay == true)
@@ -81,7 +84,7 @@ namespace Calendara.Api.Mapping
                     Location = request.Location is null &&
                                request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
                                ? eventItem.Location
-                               : request.Location
+                               : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
             else if (request.AllDay == false)
@@ -101,7 +104,7 @@ namespace Calendara.Api.Mapping
                     Location = request.Location is null &&
                                request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
                                ? eventItem.Location
-                               : request.Location
+                               : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
             else if (request.AllDay is null && eventItem.AllDay == false)
@@ -121,7 +124,7 @@ namespace Calendara.Api.Mapping
                     Location = request.Location is null &&
                                request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
                                ? eventItem.Location
-                               : request.Location
+                               : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
             else
@@ -140,7 +143,7 @@ namespace Calendara.Api.Mapping
                     DateOnly = eventItem.DateOnly,
                     Description = eventItem.Description,
                     Location = eventItem.Location != null
-                        ? new CoordinateResponse { X = eventItem.Location.X, Y = eventItem.Location.Y }
+                        ? new CoordinateResponse { Latitude = eventItem.Location.Latitude, Longitude = eventItem.Location.Longitude }
                         : null
                 };
             else
@@ -154,7 +157,7 @@ namespace Calendara.Api.Mapping
                     EndDateTime = eventItem.EndDateTime,
                     Description = eventItem.Description,
                     Location = eventItem.Location != null
-                        ? new CoordinateResponse { X = eventItem.Location.X, Y = eventItem.Location.Y }
+                        ? new CoordinateResponse { Latitude = eventItem.Location.Latitude, Longitude = eventItem.Location.Longitude }
                         : null
                 };  
             }

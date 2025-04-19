@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using NetTopologySuite.Geometries; // To use Coordinate type 
 
 namespace Calendara.Application.Models
 {
@@ -24,7 +23,7 @@ namespace Calendara.Application.Models
 
         public string? Description { get; init; }
 
-        public Coordinate? Location { get; init; }
+        public GeoCoordinate? Location { get; init; }
 
     }
 }

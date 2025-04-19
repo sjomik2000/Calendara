@@ -18,7 +18,7 @@ namespace Calendara.Contracts.Requests
 
         public string? Description { get; init; }
 
-        public Coordinate? Location { get; init; }
+        public CoordinateRequest? Location { get; init; }
 
     }
 }

@@ -35,8 +35,6 @@ namespace Calendara.Api
                     //Fixes bug when sending coordinates in JSON body
                     options.JsonSerializerOptions.NumberHandling = 
                         System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals;
-                    options.JsonSerializerOptions.ReferenceHandler =
-                        System.Text.Json.Serialization.ReferenceHandler.Preserve;
                 });
             services.AddApplication();
         }

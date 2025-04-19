@@ -20,7 +20,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 10, 15, 13, 0, 0),
                 EndDateTime = new DateTime(2025, 10, 15, 14, 0, 0),
                 Description = "This is a sample event 1.",
-                Location = new Coordinate(52.477973735285154, -1.8987571127313878)
+                Location = new CoordinateRequest { Latitude = 52.477973735285154, Longitude = -1.8987571127313878 }
             };
         }
         public static CreateEventRequest GetCreateRequestFixture2()
@@ -33,7 +33,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "This is another sample event.",
-                Location = new Coordinate(51.50084938904448, -0.124582486769179)
+                Location = new CoordinateRequest { Latitude = 51.50084938904448, Longitude = -0.124582486769179 }
             };
         }
         public static CreateEventRequest GetCreateRequestFixture3()
@@ -63,7 +63,7 @@ namespace Calendara.UnitTests.Fixtures
                     StartDateTime = new DateTime(2025,10,15,13,0,0),
                     EndDateTime = new DateTime(2025,10,15,14,0,0),
                     Description = "This is a sample event 1.",
-                    Location = new Coordinate(52.477973735285154, -1.8987571127313878)
+                    Location = new GeoCoordinate(52.477973735285154, -1.8987571127313878)
                 },
                 new Event
                 {
@@ -74,7 +74,7 @@ namespace Calendara.UnitTests.Fixtures
                     StartDateTime = null,
                     EndDateTime = null,
                     Description = "This is another sample event.",
-                    Location = new Coordinate(51.50084938904448, -0.124582486769179)
+                    Location = new GeoCoordinate(51.50084938904448, -0.124582486769179)
                 },
                 new Event
                 {
@@ -101,7 +101,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 10, 15, 13, 0, 0),
                 EndDateTime = new DateTime(2025, 10, 15, 14, 0, 0),
                 Description = "This is a sample event 1.",
-                Location = new Coordinate(52.477973735285154, -1.8987571127313878)
+                Location = new GeoCoordinate(52.477973735285154, -1.8987571127313878)
             };
         }
 
@@ -116,7 +116,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "This is another sample event.",
-                Location = new Coordinate(51.50084938904448, -0.124582486769179)
+                Location = new GeoCoordinate(51.50084938904448, -0.124582486769179)
             };
         }
 
@@ -146,7 +146,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "This is an all-day event stored in the database.",
-                Location = new Coordinate(40.712776, -74.005974)
+                Location = new GeoCoordinate(40.712776, -74.005974)
             };
         }
 
@@ -161,7 +161,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 11, 15, 10, 0, 0),
                 EndDateTime = new DateTime(2025, 11, 15, 12, 0, 0),
                 Description = "This is a non-all-day event stored in the database.",
-                Location = new Coordinate(34.052235, -118.243683)
+                Location = new GeoCoordinate(34.052235, -118.243683)
             };
         }
 
@@ -176,7 +176,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "Christmas Day Event",
-                Location = new Coordinate(10, 20)
+                Location = new GeoCoordinate(10, 20)
             };
         }
 
@@ -191,7 +191,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 12, 24, 18, 0, 0),
                 EndDateTime = new DateTime(2025, 12, 26, 6, 0, 0),
                 Description = "Christmas Eve to Boxing Day",
-                Location = new Coordinate(30, 40)
+                Location = new GeoCoordinate(30, 40)
             };
         }
 
@@ -206,7 +206,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "Event happening on a single day within the range.",
-                Location = new Coordinate(10, 20)
+                Location = new GeoCoordinate(10, 20)
             };
         }
 
@@ -221,7 +221,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 12, 19, 18, 0, 0),
                 EndDateTime = new DateTime(2025, 12, 21, 6, 0, 0),
                 Description = "Event spanning multiple days within the range.",
-                Location = new Coordinate(30, 40)
+                Location = new GeoCoordinate(30, 40)
             };
         }
 
@@ -236,7 +236,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 12, 25, 18, 0, 0),
                 EndDateTime = new DateTime(2025, 12, 26, 6, 0, 0),
                 Description = "Event happening completely outside the range.",
-                Location = new Coordinate(50, 60)
+                Location = new GeoCoordinate(50, 60)
             };
         }
 
@@ -250,7 +250,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 10, 15, 13, 0, 0),
                 EndDateTime = new DateTime(2025, 10, 15, 14, 0, 0),
                 Description = "This is a sample event 1.",
-                Location = new CoordinateResponse { X = 52.477973735285154, Y = -1.8987571127313878 }
+                Location = new CoordinateResponse { Latitude = 52.477973735285154, Longitude = -1.8987571127313878 }
             };
         }
 
@@ -263,7 +263,7 @@ namespace Calendara.UnitTests.Fixtures
                 AllDay = true,
                 DateOnly = new DateOnly(2025, 10, 15),
                 Description = "This is another sample event.",
-                Location = new CoordinateResponse { X = 51.50084938904448, Y = -0.124582486769179 }
+                Location = new CoordinateResponse { Latitude = 51.50084938904448, Longitude = -0.124582486769179 }
             };
         }
 
@@ -293,7 +293,7 @@ namespace Calendara.UnitTests.Fixtures
                     StartDateTime = new DateTime(2025,10,15,13,0,0),
                     EndDateTime = new DateTime(2025,10,15,14,0,0),
                     Description = "This is a sample event 1.",
-                    Location = new CoordinateResponse { X = 52.477973735285154, Y = -1.8987571127313878 }
+                    Location = new CoordinateResponse { Latitude = 52.477973735285154, Longitude = -1.8987571127313878 }
                 },
                 new EventResponse
                 {
@@ -302,7 +302,7 @@ namespace Calendara.UnitTests.Fixtures
                     AllDay = true,
                     DateOnly = new DateOnly(2025,10,15),
                     Description = "This is another sample event.",
-                    Location = new CoordinateResponse { X = 51.50084938904448, Y = -0.124582486769179 }
+                    Location = new CoordinateResponse { Latitude = 51.50084938904448, Longitude = -0.124582486769179 }
                 },
                 new EventResponse
                 {
@@ -327,7 +327,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "This is another sample event.",
-                Location = new Coordinate(51.50084938904448, -0.124582486769179)
+                Location = new CoordinateRequest { Latitude = 51.50084938904448, Longitude = -0.124582486769179 }
             };
         }
         public static UpdateEventRequest UpdateEventRequestForFixture2()
@@ -339,7 +339,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 10, 15, 13, 0, 0),
                 EndDateTime = new DateTime(2025, 10, 15, 14, 0, 0),
                 Description = "This is a sample event 1.",
-                Location = new Coordinate(52.477973735285154, -1.8987571127313878)
+                Location = new CoordinateRequest { Latitude = 52.477973735285154, Longitude = -1.8987571127313878 }
             };
         }
         public static UpdateEventRequest UpdateEventRequestForFixture3()
@@ -383,7 +383,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "This is another sample event.",
-                Location = new Coordinate(51.50084938904448, -0.124582486769179)
+                Location = new GeoCoordinate(51.50084938904448, -0.124582486769179)
             };
         }
 
@@ -397,7 +397,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 10, 15, 13, 0, 0),
                 EndDateTime = new DateTime(2025, 10, 15, 14, 0, 0),
                 Description = "This is a sample event 1.",
-                Location = new Coordinate(52.477973735285154, -1.8987571127313878)
+                Location = new GeoCoordinate(52.477973735285154, -1.8987571127313878)
             };
         }
 
@@ -427,7 +427,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "Updated description for the event.",
-                Location = new Coordinate(40.712776, -74.005974)
+                Location = new GeoCoordinate(40.712776, -74.005974)
             };
         }
 
@@ -442,7 +442,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = new DateTime(2025, 11, 15, 10, 0, 0), 
                 EndDateTime = new DateTime(2025, 11, 15, 12, 0, 0), 
                 Description = "This is a non-all-day event stored in the database.", 
-                Location = new Coordinate(34.052235, -118.243683) 
+                Location = new GeoCoordinate(34.052235, -118.243683) 
             };
         }
 
@@ -471,7 +471,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = DateTime.UtcNow.AddDays(1).AddHours(1),
                 Description = "Event with empty title",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
         public static Event GetInvalidEventLongTitleFixture()
@@ -485,7 +485,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = DateTime.UtcNow.AddDays(1).AddHours(1),
                 Description = "Event with too long title",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -500,7 +500,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "All-day event missing date",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
         public static Event GetInvalidEventPastDateOnlyFixture()
@@ -514,7 +514,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "All-day event with past date",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -529,7 +529,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = DateTime.UtcNow.AddDays(1).AddHours(1),
                 Description = "Non-all-day event with DateOnly",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -544,7 +544,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "Event too far in the future",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
         public static Event GetInvalidEventMissingStartDateTimeFixture()
@@ -558,7 +558,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null, // Missing StartDateTime for non all-day event
                 EndDateTime = DateTime.UtcNow.AddDays(1),
                 Description = "Event missing start time",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -573,7 +573,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(-1), // Past start time
                 EndDateTime = DateTime.UtcNow.AddDays(1),
                 Description = "Event with past start time",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -588,7 +588,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1), // Invalid StartDateTime for all-day event
                 EndDateTime = null,
                 Description = "All-day event with start time",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -603,7 +603,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = null, // Missing EndDateTime for non all-day event
                 Description = "Event missing end time",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -618,7 +618,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = null,
                 EndDateTime = DateTime.UtcNow.AddDays(1).AddHours(2), // EndDateTime provided for all-day event
                 Description = "All-day event with end time",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -633,7 +633,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(2),
                 EndDateTime = DateTime.UtcNow.AddDays(1), // EndDateTime before start
                 Description = "Event with end time before start time",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -648,7 +648,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = DateTime.UtcNow.AddDays(9), // Duration exceeds 7 days
                 Description = "Event exceeding maximum duration",
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -663,7 +663,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = DateTime.UtcNow.AddDays(1).AddHours(2),
                 Description = new string('A', 501), // Description exceeds 500 characters
-                Location = new Coordinate(50, 50)
+                Location = new GeoCoordinate(50, 50)
             };
         }
 
@@ -678,7 +678,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(1),
                 EndDateTime = DateTime.UtcNow.AddDays(1).AddHours(2),
                 Description = "Event with invalid location coordinates",
-                Location = new Coordinate(200, 100) // Longitude out of range
+                Location = new GeoCoordinate(200, 100) // Longitude out of range
             };
         }
 
@@ -693,7 +693,7 @@ namespace Calendara.UnitTests.Fixtures
                 StartDateTime = DateTime.UtcNow.AddDays(-1),
                 EndDateTime = null, 
                 Description = new string('A', 501), 
-                Location = new Coordinate(200, 100) 
+                Location = new GeoCoordinate(200, 100) 
             };
         }
 

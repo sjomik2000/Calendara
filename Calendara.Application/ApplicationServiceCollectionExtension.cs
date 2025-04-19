@@ -6,6 +6,7 @@ using Calendara.Application.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using Calendara.Application.Validators;
+using Calendara.Application.Database;
 
 namespace Calendara.Application
 {
@@ -16,6 +17,13 @@ namespace Calendara.Application
             services.AddSingleton<IEventService, EventService>();
             services.AddSingleton<IEventRepository, EventRepository>();
             services.AddValidatorsFromAssemblyContaining<EventValidator>(ServiceLifetime.Singleton);
+            return services;
+        }
+
+        public static IServiceCollection AddDatabase(this IServiceCollection services, string connectionString)
+        {
+            services.AddSingleton<IDatabaseConnection>(_ => new DatabaseConnection(connectionString));
+            services.AddSingleton<DbInitializer>();
             return services;
         }
     }

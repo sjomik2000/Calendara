@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Calendara.Contracts.Responses;
-public class CoordinateResponse {
-    public double X { get; init; }
-    public double Y { get; init; }
+public class CoordinateResponse
+{
+    public double Latitude { get; init; }
+    public double Longitude { get; init; }
 }
     
 

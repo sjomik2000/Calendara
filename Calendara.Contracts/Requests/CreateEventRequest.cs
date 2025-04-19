@@ -1,4 +1,5 @@
-﻿using NetTopologySuite.Geometries;
+﻿using Calendara.Application.Models;
+using NetTopologySuite.Geometries;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,6 @@ namespace Calendara.Contracts.Requests
 
         public string? Description { get; init; }
 
-        public Coordinate? Location { get; init; }
+        public CoordinateRequest? Location { get; init; }
     }
 }

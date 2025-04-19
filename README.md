@@ -115,3 +115,6 @@ method.
 writing Service layer and fully tested it. Finished writing Validation layer with mapping middleware and 
 validation response failure and fully tested it. Finished writing repository layer for a temporary dictionary
 database. Configured launchSettings.json and Startup.cs to launch API for specified port.
++ 2025.04.19 - Fixed request JSON formatting for Coordinates by creating custom GeoCoordinate class with 
+request and response templates. Tested all HTTP requests through Postman. Added database connection 
+and initialization files.
