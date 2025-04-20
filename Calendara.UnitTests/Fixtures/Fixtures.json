@@ -9,8 +9,8 @@
         "endDateTime": "2025-10-15T14:00:00",
         "description": "This is a sample event 1.",
         "location": {
-          "x": 52.477973735285154,
-          "y": -1.8987571127313878
+          "latitude": 52.477973735285154,
+          "longitude": -1.8987571127313878
         }
       }
     },
@@ -22,8 +22,8 @@
         "dateOnly": "2025-10-15",
         "description": "This is another sample event.",
         "location": {
-          "x": 51.50084938904448,
-          "y": -0.124582486769179
+          "latitude": 51.50084938904448,
+          "longitude": -0.124582486769179
         }
       }
     },
@@ -47,8 +47,8 @@
         "endDateTime": "2025-10-15T14:00:00",
         "description": "This is a sample event 1.",
         "location": {
-          "x": 52.477973735285154,
-          "y": -1.8987571127313878
+          "latitude": 52.477973735285154,
+          "longitude": -1.8987571127313878
         }
       }
     },
@@ -60,8 +60,8 @@
         "dateOnly": "2025-10-15",
         "description": "This is another sample event.",
         "location": {
-          "x": 51.50084938904448,
-          "y": -0.124582486769179
+          "latitude": 51.50084938904448,
+          "longitude": -0.124582486769179
         }
       }
     },
@@ -82,8 +82,8 @@
         "dateOnly": "2025-12-25",
         "description": "This is an all-day event stored in the database.",
         "location": {
-          "x": 40.712776,
-          "y": -74.005974
+          "latitude": 40.712776,
+          "longitude": -74.005974
         }
       }
     },
@@ -96,8 +96,8 @@
         "endDateTime": "2025-11-15T12:00:00",
         "description": "This is a non-all-day event stored in the database.",
         "location": {
-          "x": 34.052235,
-          "y": -118.243683
+          "latitude": 34.052235,
+          "longitude": -118.243683
         }
       }
     },
@@ -109,8 +109,8 @@
         "dateOnly": "2025-12-25",
         "description": "Christmas Day Event",
         "location": {
-          "x": 10,
-          "y": 20
+          "latitude": 10,
+          "longitude": 20
         }
       }
     },
@@ -123,8 +123,8 @@
         "endDateTime": "2025-12-26T06:00:00",
         "description": "Christmas Eve to Boxing Day",
         "location": {
-          "x": 30,
-          "y": 40
+          "latitude": 30,
+          "longitude": 40
         }
       }
     },
@@ -136,8 +136,8 @@
         "dateOnly": "2025-12-20",
         "description": "Event happening on a single day within the range.",
         "location": {
-          "x": 10,
-          "y": 20
+          "latitude": 10,
+          "longitude": 20
         }
       }
     },
@@ -150,8 +150,8 @@
         "endDateTime": "2025-12-21T06:00:00",
         "description": "Event spanning multiple days within the range.",
         "location": {
-          "x": 30,
-          "y": 40
+          "latitude": 30,
+          "longitude": 40
         }
       }
     },
@@ -164,8 +164,8 @@
         "endDateTime": "2025-12-26T06:00:00",
         "description": "Event happening completely outside the range.",
         "location": {
-          "x": 50,
-          "y": 60
+          "latitude": 50,
+          "longitude": 60
         }
       }
     }
@@ -179,8 +179,8 @@
         "dateOnly": "2025-10-15",
         "description": "This is another sample event.",
         "location": {
-          "x": 51.50084938904448,
-          "y": -0.124582486769179
+          "latitude": 51.50084938904448,
+          "longitude": -0.124582486769179
         }
       }
     },
@@ -193,8 +193,8 @@
         "endDateTime": "2025-10-15T14:00:00",
         "description": "This is a sample event 1.",
         "location": {
-          "x": 52.477973735285154,
-          "y": -1.8987571127313878
+          "latitude": 52.477973735285154,
+          "longitude": -1.8987571127313878
         }
       }
     },

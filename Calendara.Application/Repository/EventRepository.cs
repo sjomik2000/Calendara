@@ -1,4 +1,6 @@
-﻿using Calendara.Application.Models;
+﻿using Calendara.Application.Database;
+using Calendara.Application.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,50 +11,68 @@ namespace Calendara.Application.Repositories
 {
     public class EventRepository : IEventRepository         
     {
-        private readonly Dictionary<Guid, Event> _eventsRepository = new();
-        public Task<bool> CreateAsync(Event eventItem)
+        private readonly IDatabaseConnection _dbConnection;
+
+        public EventRepository(IDatabaseConnection dbConnection)
         {
-            if (_eventsRepository.ContainsKey(eventItem.Id))
+            _dbConnection = dbConnection;
+        }
+        public async Task<bool> CreateAsync(Event eventItem)
+        {
+            try
             {
-                return Task.FromResult(false);
+                await _dbConnection.Context.Set<Event>().AddAsync(eventItem);
+                await _dbConnection.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public async Task<bool> DeleteByIdAsync(Guid id)
+        {
+            var eventToDelete = await _dbConnection.Context.Set<Event>().FindAsync(id);
+            if (eventToDelete == null)
+            {
+                return false;
             }
 
-            _eventsRepository.Add(eventItem.Id, eventItem);
-            return Task.FromResult(true);
-        }
-        public Task<bool> DeleteByIdAsync(Guid id)
-        {
-            var result = _eventsRepository.Remove(id);
-            return Task.FromResult(true);
+            _dbConnection.Context.Set<Event>().Remove(eventToDelete);
+            await _dbConnection.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> ExistsByIdAsync(Guid id)
+        public async Task<bool> ExistsByIdAsync(Guid id)
         {
-            return Task.FromResult(_eventsRepository.ContainsKey(id));
+            return await _dbConnection.Context.Set<Event>().AnyAsync(e => e.Id == id);
         }
 
-        public Task<IEnumerable<Event>> GetAllAsync()
+        public async Task<IEnumerable<Event>> GetAllAsync()
         {
-            return Task.FromResult(_eventsRepository.Values.AsEnumerable());
+            return await _dbConnection.Context.Set<Event>()
+                .AsNoTracking() // Improves performance for read only calls
+                .ToListAsync();
         }
 
-        public Task<Event> GetByIdAsync(Guid id)
+        public async Task<Event> GetByIdAsync(Guid id)
         {
-            if (_eventsRepository.TryGetValue(id, out var eventItem))
+            return await _dbConnection.Context.Set<Event>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+        public async Task<bool> UpdateAsync(Event eventItem)
+        {
+            var exists = await ExistsByIdAsync(eventItem.Id);
+            if (!exists)
             {
-                return Task.FromResult<Event?>(eventItem);
+                return false;
             }
-            return Task.FromResult<Event?>(null);
-        }
 
-        public Task<bool> UpdateAsync(Event eventItem)
-        {
-            if (!_eventsRepository.ContainsKey(eventItem.Id))
-            {
-                return Task.FromResult(false);
-            }
-            _eventsRepository[eventItem.Id] = eventItem;
-            return Task.FromResult(true);
+            _dbConnection.Context.Set<Event>().Update(eventItem);
+            await _dbConnection.SaveChangesAsync();
+            return true;
         }
     }
 }

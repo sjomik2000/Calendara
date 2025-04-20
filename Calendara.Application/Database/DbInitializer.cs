@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Calendara.Application.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +10,24 @@ namespace Calendara.Application.Database
 {
     public class DbInitializer
     {
-        private readonly IDatabaseConnection _databaseConnection;
+        private readonly DatabaseConnection _dbContext;
 
-        public DbInitializer(IDatabaseConnection databaseConnection)
+        public DbInitializer(DatabaseConnection dbContext)
         {
-            _databaseConnection = databaseConnection;
+            _dbContext = dbContext;
         }
 
         public async Task InitializeAsync()
         {
-            using var connection = await _databaseConnection.CreateConnectionAsync(); 
-            
+            try
+            {
+                await _dbContext.MigrateAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Exception occurred: {ex}");
+            }
+
         }
     }
 }

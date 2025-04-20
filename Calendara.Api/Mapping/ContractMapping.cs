@@ -36,8 +36,8 @@ namespace Calendara.Api.Mapping
                     Title = request.Title,
                     AllDay = request.AllDay,
                     DateOnly = null,
-                    StartDateTime = request.StartDateTime,
-                    EndDateTime = request.EndDateTime,
+                    StartDateTime = DateTime.SpecifyKind(request.StartDateTime.Value, DateTimeKind.Utc),
+                    EndDateTime = DateTime.SpecifyKind(request.EndDateTime.Value, DateTimeKind.Utc),
                     Description = request.Description ?? string.Empty,
                     Location = request.Location != null
                         ? new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
@@ -95,8 +95,12 @@ namespace Calendara.Api.Mapping
                     Title = request.Title ?? eventItem.Title,
                     AllDay = (bool)request.AllDay,
                     DateOnly = null,
-                    StartDateTime = request.StartDateTime ?? eventItem.StartDateTime,
-                    EndDateTime = request.EndDateTime ?? eventItem.EndDateTime,
+                    StartDateTime = request.StartDateTime.HasValue
+                               ? DateTime.SpecifyKind(request.StartDateTime.Value, DateTimeKind.Utc)
+                               : eventItem.StartDateTime,
+                    EndDateTime = request.EndDateTime.HasValue
+                               ? DateTime.SpecifyKind(request.EndDateTime.Value, DateTimeKind.Utc)
+                               : eventItem.EndDateTime,
                     Description = request.Description is null &&
                                request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
                                ? eventItem.Description

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Calendara.Api.Mapping;
 using Calendara.Application;
+using Calendara.Application.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,14 +20,12 @@ namespace Calendara.Api
     [ExcludeFromCodeCoverage]
     public class Startup
     {
+        public IConfiguration _configuration { get; }
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
@@ -37,9 +36,9 @@ namespace Calendara.Api
                         System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals;
                 });
             services.AddApplication();
+            services.AddDatabase(_configuration);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,12 +52,20 @@ namespace Calendara.Api
 
             app.UseAuthorization();
 
+            //Mapping registration
             app.UseMiddleware<ValidationMappingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            // Database initialization during start up
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var initializer = scope.ServiceProvider.GetRequiredService<DbInitializer>();
+                initializer.InitializeAsync().Wait();
+            }
         }
     }
 }

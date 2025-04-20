@@ -118,3 +118,6 @@ database. Configured launchSettings.json and Startup.cs to launch API for specif
 + 2025.04.19 - Fixed request JSON formatting for Coordinates by creating custom GeoCoordinate class with 
 request and response templates. Tested all HTTP requests through Postman. Added database connection 
 and initialization files.
++ 2025.04.20 - Written and configured database layer with EF core code first events initialization. Configured 
+appsettings.json and startup files to connect to PostgreSQL. Registered database services. Created custom datetime 
+conversion for PostgreSQL. Updated repository files to connect to the database.
