@@ -121,3 +121,5 @@ and initialization files.
 + 2025.04.20 - Written and configured database layer with EF core code first events initialization. Configured 
 appsettings.json and startup files to connect to PostgreSQL. Registered database services. Created custom datetime 
 conversion for PostgreSQL. Updated repository files to connect to the database.
++ 2025.04.21 - Added Microsoft.EntityFramework.InMemory package for testing EF Core functionality. Fully tested 
+database layer and repository files. 
