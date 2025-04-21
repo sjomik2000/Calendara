@@ -9,11 +9,13 @@ using Calendara.Application.Validators;
 using Calendara.Application.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Calendara.Application
 {
     public static class ApplicationServiceCollectionExtension
     {
+        [ExcludeFromCodeCoverage]
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             //Changed from Singleton to Scoped for database management and consistency 
@@ -22,7 +24,7 @@ namespace Calendara.Application
             services.AddValidatorsFromAssemblyContaining<EventValidator>(ServiceLifetime.Scoped);
             return services;
         }
-
+        [ExcludeFromCodeCoverage]
         public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             string connectionString = configuration["Database:ConnectionString"];

@@ -10,9 +10,9 @@ namespace Calendara.Application.Database
 {
     public class DbInitializer
     {
-        private readonly DatabaseConnection _dbContext;
+        private readonly IDatabaseConnection _dbContext;
 
-        public DbInitializer(DatabaseConnection dbContext)
+        public DbInitializer(IDatabaseConnection dbContext)
         {
             _dbContext = dbContext;
         }
