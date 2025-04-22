@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendara.Application", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendara.Contracts", "..\Calendara.Contracts\Calendara.Contracts.csproj", "{0B6E75F9-C3F7-4A19-A59E-440A111ACD1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendara.Web", "..\Calendara.Web\Calendara.Web.csproj", "{3318F71F-CB3A-4A29-993C-B224F198D402}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{0B6E75F9-C3F7-4A19-A59E-440A111ACD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6E75F9-C3F7-4A19-A59E-440A111ACD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6E75F9-C3F7-4A19-A59E-440A111ACD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3318F71F-CB3A-4A29-993C-B224F198D402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3318F71F-CB3A-4A29-993C-B224F198D402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3318F71F-CB3A-4A29-993C-B224F198D402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3318F71F-CB3A-4A29-993C-B224F198D402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

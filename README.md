@@ -122,4 +122,7 @@ and initialization files.
 appsettings.json and startup files to connect to PostgreSQL. Registered database services. Created custom datetime 
 conversion for PostgreSQL. Updated repository files to connect to the database.
 + 2025.04.21 - Added Microsoft.EntityFramework.InMemory package for testing EF Core functionality. Fully tested 
-database layer and repository files. 
+database layer and repository files.
++ 2025.04.22 - Created Web base layer and added CORS configuration in API to connect to the Web layer. 
+Created calendar container with previous/next month paddings and buttons to navigate to next/previous months and #
+years. Added current day display and loaded all events from database. 

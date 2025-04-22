@@ -28,6 +28,16 @@ namespace Calendara.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Using CORS to integrate Web layer with API
+            services.AddCors(options =>
+            {
+                options.AddPolicy("FrontendPolicy", builder =>
+                {
+                    builder.WithOrigins("https://localhost:5001")
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -49,6 +59,8 @@ namespace Calendara.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("FrontendPolicy");
 
             app.UseAuthorization();
 
