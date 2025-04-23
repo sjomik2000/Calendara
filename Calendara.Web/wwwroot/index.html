@@ -12,18 +12,32 @@
         <h1>Calendara</h1>
     </header>
 
-    <div id="calendar-container">
-        <div id="header"></div>
-        <div id="weekdays">
-            <div>Monday</div>
-            <div>Tuesday</div>
-            <div>Wednesday</div>
-            <div>Thursday</div>
-            <div>Friday</div>
-            <div>Saturday</div>
-            <div>Sunday</div>
+    <div class="main-container">
+        <div class="calendar-side">
+            <div id="header"></div>
+            <div id="weekdays">
+                <div>Monday</div>
+                <div>Tuesday</div>
+                <div>Wednesday</div>
+                <div>Thursday</div>
+                <div>Friday</div>
+                <div>Saturday</div>
+                <div>Sunday</div>
+            </div>
+            <div id="calendar"></div>
         </div>
-        <div id="calendar"></div>
+
+        <div class="events-wrapper">
+            <div class="events-actions-header">
+                
+            </div>
+            <div class="events-side">
+                <div class="events-header">Selected Events</div>
+                <div id="events-list">
+                    <div class="no-events">No events selected. Click on a day to view events.</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/app.js"></script>

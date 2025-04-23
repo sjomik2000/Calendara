@@ -106,9 +106,9 @@ Azure DevOps pipelines ensure automated quality control:
 created README.MD with project breakdown.
 + 2025.04.15 - Created API, Application, Contracts and UnitTests base layers, started working 
 on Controller class and Services class, registered Service DI, created Events model and 5 UnitTests.  
-+ 2025.04.16 - Upgraded Project Framework from .NET Core 3.1 to .NET 8
-+ 2025.04.16 - Finished writing Calendara.Contracts layer, finished writing all Controller actions and
-mappings for requests and responses. Fully tested Create, GetById and GetAll methods.
++ 2025.04.16 - Upgraded Project Framework from .NET Core 3.1 to .NET 8. Finished Calendara.Contracts layer, 
+finished writing all Controller actions and mappings for requests and responses. Fully tested Create, 
+GetById and GetAll methods.
 + 2025.04.17 - Created GitHub CI/CD Pipeline on dev.azure.com with self hosted pool. Fully tested Update 
 method.
 + 2025.04.18 - Fully Tested Update, GetByDate, GetByDateRange and Delete controller methods. Finished 
@@ -124,5 +124,9 @@ conversion for PostgreSQL. Updated repository files to connect to the database.
 + 2025.04.21 - Added Microsoft.EntityFramework.InMemory package for testing EF Core functionality. Fully tested 
 database layer and repository files.
 + 2025.04.22 - Created Web base layer and added CORS configuration in API to connect to the Web layer. 
-Created calendar container with previous/next month paddings and buttons to navigate to next/previous months and #
+Created calendar container with previous/next month paddings and buttons to navigate to next/previous months and 
 years. Added current day display and loaded all events from database. 
++ 2025.04.23 - Updated web layout (index.html) and styling (styles.css) with better structured containers 
+for calendar and headers. Created list event container with sorting mini algorithm. Added selected and current day 
+visual functionality. Created date and weekday formatting for UK culture displays. Added event display with event 
+information with ability to open geolocation in Google maps. Added event action buttons (WIP).
