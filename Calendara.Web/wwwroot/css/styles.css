@@ -224,8 +224,10 @@ header {
 
 /* 6.1 Events Actions Header */
 .events-actions-header {
+    position: relative;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-end;
     width: 100%;
     height: 170px;
@@ -321,4 +323,205 @@ header {
     .location-link:hover {
         color: #247BA0;
         text-decoration: underline;
+    }
+
+/* Event Form Styles */
+.event-form {
+    padding: 15px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Toggle switch for all-day */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #58bae4;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+/* Date input groups */
+.date-inputs, .location-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.date-part {
+    width: 50px;
+    text-align: center;
+}
+
+.year-part {
+    width: 70px;
+}
+
+/* Form actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.submit-button, .cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #1e6bb3; /* Deeper blue as requested */
+}
+
+    .submit-button:hover {
+        background-color: #145a9c;
+    }
+
+.cancel-button {
+    background-color: #aaa;
+}
+
+    .cancel-button:hover {
+        background-color: #999;
+    }
+
+/* Notification styles */
+.notification {
+    position: absolute;
+    top: 0px; 
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    animation: slide-down 0.3s ease;
+    z-index: 10;
+}
+
+    .notification.success {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .notification.error {
+        background-color: #f44336;
+        color: white;
+    }
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Search options styles */
+.search-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.search-option-button {
+    padding: 12px;
+    background-color: #92a1d1;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .search-option-button:hover {
+        background-color: #7b89b3;
     }

@@ -1,307 +1,1500 @@
 ﻿{
-  "createEventRequests": [
+  "events": [
     {
-      "name": "CreateEventRequest1",
-      "data": {
-        "title": "Sample Event 1",
-        "allDay": false,
-        "startDateTime": "2025-10-15T13:00:00",
-        "endDateTime": "2025-10-15T14:00:00",
-        "description": "This is a sample event 1.",
-        "location": {
-          "latitude": 52.477973735285154,
-          "longitude": -1.8987571127313878
-        }
+      "title": "Quarterly Financial Review",
+      "allDay": false,
+      "startDateTime": "2025-04-25T09:00:00",
+      "endDateTime": "2025-04-25T12:00:00",
+      "description": "Review Q1 financial performance with department heads and discuss projections for Q2.",
+      "location": {
+        "latitude": 51.507351,
+        "longitude": -0.127758
       }
     },
     {
-      "name": "CreateEventRequest2",
-      "data": {
-        "title": "Sample Event 2",
-        "allDay": true,
-        "dateOnly": "2025-10-15",
-        "description": "This is another sample event.",
-        "location": {
-          "latitude": 51.50084938904448,
-          "longitude": -0.124582486769179
-        }
+      "title": "Earth Day Celebration",
+      "allDay": true,
+      "dateOnly": "2025-04-28",
+      "description": "Annual Earth Day event with tree planting activities and environmental awareness workshops."
+    },
+    {
+      "title": "Product Launch: NextGen Smart Device",
+      "allDay": false,
+      "startDateTime": "2025-05-02T14:00:00",
+      "endDateTime": "2025-05-02T17:30:00",
+      "description": "Official launch of our new smart device with press conference and demonstration.",
+      "location": {
+        "latitude": 40.712776,
+        "longitude": -74.005974
       }
     },
     {
-      "name": "CreateEventRequest3",
-      "data": {
-        "title": "Party!",
-        "allDay": false,
-        "startDateTime": "2025-05-18T21:00:00",
-        "endDateTime": "2025-05-19T03:00:00"
-      }
-    }
-  ],
-  "eventFixtures": [
-    {
-      "name": "TestFixture1",
-      "data": {
-        "title": "Sample Event 1",
-        "allDay": false,
-        "startDateTime": "2025-10-15T13:00:00",
-        "endDateTime": "2025-10-15T14:00:00",
-        "description": "This is a sample event 1.",
-        "location": {
-          "latitude": 52.477973735285154,
-          "longitude": -1.8987571127313878
-        }
+      "title": "Team Building Workshop",
+      "allDay": true,
+      "dateOnly": "2025-05-07",
+      "description": "Full day team building activities focused on improving collaboration and communication.",
+      "location": {
+        "latitude": 51.378527,
+        "longitude": -0.100435
       }
     },
     {
-      "name": "TestFixture2",
-      "data": {
-        "title": "Sample Event 2",
-        "allDay": true,
-        "dateOnly": "2025-10-15",
-        "description": "This is another sample event.",
-        "location": {
-          "latitude": 51.50084938904448,
-          "longitude": -0.124582486769179
-        }
+      "title": "Spring Charity Run",
+      "allDay": false,
+      "startDateTime": "2025-05-10T08:00:00",
+      "endDateTime": "2025-05-10T13:00:00",
+      "description": "Annual 10K charity run to raise funds for local homeless shelters.",
+      "location": {
+        "latitude": 51.451245,
+        "longitude": -0.303126
       }
     },
     {
-      "name": "TestFixture3",
-      "data": {
-        "title": "Party!",
-        "allDay": false,
-        "startDateTime": "2025-05-18T21:00:00",
-        "endDateTime": "2025-05-19T03:00:00"
+      "title": "Website Redesign Planning",
+      "allDay": false,
+      "startDateTime": "2025-05-15T10:00:00",
+      "endDateTime": "2025-05-15T12:00:00",
+      "description": "Initial meeting to discuss website redesign project goals and timeline."
+    },
+    {
+      "title": "Summer Music Festival",
+      "allDay": true,
+      "dateOnly": "2025-05-23",
+      "description": "Annual outdoor music festival featuring local and international artists.",
+      "location": {
+        "latitude": 51.505853,
+        "longitude": -0.086288
       }
     },
     {
-      "name": "TestFixture4",
-      "data": {
-        "title": "Existing All-Day Event",
-        "allDay": true,
-        "dateOnly": "2025-12-25",
-        "description": "This is an all-day event stored in the database.",
-        "location": {
-          "latitude": 40.712776,
-          "longitude": -74.005974
-        }
+      "title": "UI/UX Design Workshop",
+      "allDay": false,
+      "startDateTime": "2025-05-27T13:00:00",
+      "endDateTime": "2025-05-27T17:00:00",
+      "description": "Professional workshop on modern UI/UX design principles and practices.",
+      "location": {
+        "latitude": 40.730610,
+        "longitude": -73.935242
       }
     },
     {
-      "name": "TestFixture5",
-      "data": {
-        "title": "Existing Non-All-Day Event",
-        "allDay": false,
-        "startDateTime": "2025-11-15T10:00:00",
-        "endDateTime": "2025-11-15T12:00:00",
-        "description": "This is a non-all-day event stored in the database.",
-        "location": {
-          "latitude": 34.052235,
-          "longitude": -118.243683
-        }
+      "title": "Memorial Day Office Closure",
+      "allDay": true,
+      "dateOnly": "2025-05-31",
+      "description": "Office closed in observance of Memorial Day."
+    },
+    {
+      "title": "Quarterly Sales Meeting",
+      "allDay": false,
+      "startDateTime": "2025-06-03T14:00:00",
+      "endDateTime": "2025-06-03T16:30:00",
+      "description": "Review of Q2 sales performance and strategy planning for Q3.",
+      "location": {
+        "latitude": 34.052235,
+        "longitude": -118.243683
       }
     },
     {
-      "name": "TestFixture6",
-      "data": {
-        "title": "Single-Day Event",
-        "allDay": true,
-        "dateOnly": "2025-12-25",
-        "description": "Christmas Day Event",
-        "location": {
-          "latitude": 10,
-          "longitude": 20
-        }
+      "title": "Employee Wellness Day",
+      "allDay": true,
+      "dateOnly": "2025-06-09",
+      "description": "Company-wide wellness activities including health screenings, fitness classes, and wellness workshops.",
+      "location": {
+        "latitude": 41.878113,
+        "longitude": -87.629799
       }
     },
     {
-      "name": "TestFixture7",
-      "data": {
-        "title": "Multi-Day Event",
-        "allDay": false,
-        "startDateTime": "2025-12-24T18:00:00",
-        "endDateTime": "2025-12-26T06:00:00",
-        "description": "Christmas Eve to Boxing Day",
-        "location": {
-          "latitude": 30,
-          "longitude": 40
-        }
+      "title": "Marketing Strategy Session",
+      "allDay": false,
+      "startDateTime": "2025-06-12T09:30:00",
+      "endDateTime": "2025-06-12T12:00:00",
+      "description": "Planning session for upcoming summer marketing campaigns."
+    },
+    {
+      "title": "Father's Day Celebration",
+      "allDay": true,
+      "dateOnly": "2025-06-15",
+      "description": "Special event honoring fathers with activities and family-friendly entertainment.",
+      "location": {
+        "latitude": 37.774929,
+        "longitude": -122.419418
       }
     },
     {
-      "name": "TestFixture8",
-      "data": {
-        "title": "Event Within Range",
-        "allDay": true,
-        "dateOnly": "2025-12-20",
-        "description": "Event happening on a single day within the range.",
-        "location": {
-          "latitude": 10,
-          "longitude": 20
-        }
+      "title": "Tech Conference 2025",
+      "allDay": false,
+      "startDateTime": "2025-06-18T08:00:00",
+      "endDateTime": "2025-06-20T18:00:00",
+      "description": "Annual technology conference with keynote speakers, workshops, and networking opportunities.",
+      "location": {
+        "latitude": 47.606209,
+        "longitude": -122.332069
       }
     },
     {
-      "name": "TestFixture9",
-      "data": {
-        "title": "Event Spanning Range",
-        "allDay": false,
-        "startDateTime": "2025-12-19T18:00:00",
-        "endDateTime": "2025-12-21T06:00:00",
-        "description": "Event spanning multiple days within the range.",
-        "location": {
-          "latitude": 30,
-          "longitude": 40
-        }
+      "title": "Remote Team Check-in",
+      "allDay": false,
+      "startDateTime": "2025-06-25T15:00:00",
+      "endDateTime": "2025-06-25T16:00:00",
+      "description": "Virtual meeting to connect with remote team members and discuss ongoing projects."
+    },
+    {
+      "title": "Independence Day Celebration",
+      "allDay": true,
+      "dateOnly": "2025-07-04",
+      "description": "Annual Independence Day celebration with fireworks, live music, and food vendors.",
+      "location": {
+        "latitude": 38.889484,
+        "longitude": -77.035278
       }
     },
     {
-      "name": "TestFixture10",
-      "data": {
-        "title": "Event Outside Range",
-        "allDay": false,
-        "startDateTime": "2025-12-25T18:00:00",
-        "endDateTime": "2025-12-26T06:00:00",
-        "description": "Event happening completely outside the range.",
-        "location": {
-          "latitude": 50,
-          "longitude": 60
-        }
-      }
-    }
-  ],
-  "updateEventRequests": [
-    {
-      "name": "UpdateRequest1",
-      "data": {
-        "title": "Sample Event 2",
-        "allDay": true,
-        "dateOnly": "2025-10-15",
-        "description": "This is another sample event.",
-        "location": {
-          "latitude": 51.50084938904448,
-          "longitude": -0.124582486769179
-        }
+      "title": "Summer Code Camp",
+      "allDay": true,
+      "dateOnly": "2025-07-07",
+      "description": "Week-long coding boot camp for high school students interested in computer science.",
+      "location": {
+        "latitude": 42.360082,
+        "longitude": -71.058880
       }
     },
     {
-      "name": "UpdateRequest2",
-      "data": {
-        "title": "Sample Event 1",
-        "allDay": false,
-        "startDateTime": "2025-10-15T13:00:00",
-        "endDateTime": "2025-10-15T14:00:00",
-        "description": "This is a sample event 1.",
-        "location": {
-          "latitude": 52.477973735285154,
-          "longitude": -1.8987571127313878
-        }
+      "title": "Product Development Brainstorming",
+      "allDay": false,
+      "startDateTime": "2025-07-11T10:00:00",
+      "endDateTime": "2025-07-11T15:00:00",
+      "description": "Creative session to generate new product ideas and improvements."
+    },
+    {
+      "title": "Customer Feedback Forum",
+      "allDay": false,
+      "startDateTime": "2025-07-16T13:00:00",
+      "endDateTime": "2025-07-16T15:30:00",
+      "description": "Open forum for customers to provide feedback on products and services.",
+      "location": {
+        "latitude": 39.952583,
+        "longitude": -75.165222
       }
     },
     {
-      "name": "UpdateRequest3",
-      "data": {
-        "title": "Party Cancelled ;(",
-        "allDay": false,
-        "startDateTime": "2025-05-18T21:00:00",
-        "endDateTime": "2025-05-19T03:00:00",
-        "description": "Contact manager"
+      "title": "Summer Staff Picnic",
+      "allDay": true,
+      "dateOnly": "2025-07-20",
+      "description": "Annual company picnic with games, food, and team-building activities.",
+      "location": {
+        "latitude": 33.748997,
+        "longitude": -84.387985
       }
     },
     {
-      "name": "UpdateRequest4",
-      "data": {
-        "title": "Updated Event Title",
-        "description": "Updated description for the event."
+      "title": "Cybersecurity Training",
+      "allDay": false,
+      "startDateTime": "2025-07-23T09:00:00",
+      "endDateTime": "2025-07-23T12:00:00",
+      "description": "Mandatory training on latest cybersecurity threats and best practices."
+    },
+    {
+      "title": "Back-to-School Supply Drive",
+      "allDay": true,
+      "dateOnly": "2025-07-31",
+      "description": "Annual collection of school supplies to donate to local schools and students in need.",
+      "location": {
+        "latitude": 32.715736,
+        "longitude": -117.161087
       }
     },
     {
-      "name": "EmptyUpdateRequest",
-      "data": {}
-    }
-  ],
-  "invalidEventFixtures": [
-    {
-      "name": "EmptyTitleEvent",
-      "data": {
-        "title": "",
-        "allDay": false,
-        "startDateTime": "2025-04-19T13:00:00",
-        "endDateTime": "2025-04-19T14:00:00",
-        "description": "Event with empty title"
+      "title": "New Hire Orientation",
+      "allDay": false,
+      "startDateTime": "2025-08-04T09:00:00",
+      "endDateTime": "2025-08-04T16:00:00",
+      "description": "Orientation day for new employees joining this month.",
+      "location": {
+        "latitude": 51.507222,
+        "longitude": -0.127647
       }
     },
     {
-      "name": "LongTitleEvent",
-      "data": {
-        "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "allDay": false,
-        "startDateTime": "2025-04-19T13:00:00",
-        "endDateTime": "2025-04-19T14:00:00",
-        "description": "Event with too long title"
+      "title": "Leadership Development Seminar",
+      "allDay": true,
+      "dateOnly": "2025-08-08",
+      "description": "Full-day seminar focused on developing leadership skills for managers and team leads."
+    },
+    {
+      "title": "Summer Internship Final Presentations",
+      "allDay": false,
+      "startDateTime": "2025-08-15T13:00:00",
+      "endDateTime": "2025-08-15T16:00:00",
+      "description": "Presentations from summer interns on their projects and accomplishments.",
+      "location": {
+        "latitude": 35.227085,
+        "longitude": -80.843124
       }
     },
     {
-      "name": "MissingDateOnlyForAllDay",
-      "data": {
-        "title": "Invalid All-Day Event",
-        "allDay": true,
-        "description": "All-day event missing date"
+      "title": "Product Beta Testing",
+      "allDay": false,
+      "startDateTime": "2025-08-19T10:00:00",
+      "endDateTime": "2025-08-19T15:00:00",
+      "description": "Testing session for the beta version of our new software product."
+    },
+    {
+      "title": "Innovation Hackathon",
+      "allDay": true,
+      "dateOnly": "2025-08-23",
+      "description": "Weekend-long hackathon to develop innovative solutions to real-world problems.",
+      "location": {
+        "latitude": 37.386052,
+        "longitude": -122.083851
       }
     },
     {
-      "name": "DateOnlyForNonAllDay",
-      "data": {
-        "title": "Invalid Non-All-Day Event",
-        "allDay": false,
-        "dateOnly": "2025-04-19",
-        "startDateTime": "2025-04-19T13:00:00",
-        "endDateTime": "2025-04-19T14:00:00"
+      "title": "Strategic Planning Retreat",
+      "allDay": true,
+      "dateOnly": "2025-08-28",
+      "description": "Executive team retreat to develop strategic plans for the upcoming fiscal year.",
+      "location": {
+        "latitude": 43.653225,
+        "longitude": -79.383186
       }
     },
     {
-      "name": "MissingStartDateTime",
-      "data": {
-        "title": "Invalid Event Missing Start",
-        "allDay": false,
-        "endDateTime": "2025-04-19T14:00:00"
+      "title": "Labor Day Weekend",
+      "allDay": true,
+      "dateOnly": "2025-09-01",
+      "description": "Office closed for Labor Day weekend."
+    },
+    {
+      "title": "Fall Marketing Campaign Kickoff",
+      "allDay": false,
+      "startDateTime": "2025-09-04T11:00:00",
+      "endDateTime": "2025-09-04T13:30:00",
+      "description": "Launch meeting for the upcoming fall marketing campaign.",
+      "location": {
+        "latitude": 40.764665,
+        "longitude": -73.973551
       }
     },
     {
-      "name": "MissingEndDateTime",
-      "data": {
-        "title": "Invalid Event Missing End",
-        "allDay": false,
-        "startDateTime": "2025-04-19T13:00:00"
+      "title": "Quarterly Budget Review",
+      "allDay": false,
+      "startDateTime": "2025-09-09T09:00:00",
+      "endDateTime": "2025-09-09T11:00:00",
+      "description": "Review of Q3 budget performance and adjustments for Q4."
+    },
+    {
+      "title": "Community Service Day",
+      "allDay": true,
+      "dateOnly": "2025-09-13",
+      "description": "Company-sponsored volunteer day supporting local community initiatives.",
+      "location": {
+        "latitude": 29.760427,
+        "longitude": -95.369804
       }
     },
     {
-      "name": "EndBeforeStart",
-      "data": {
-        "title": "Invalid Event End Before Start",
-        "allDay": false,
-        "startDateTime": "2025-04-19T15:00:00",
-        "endDateTime": "2025-04-19T13:00:00"
+      "title": "AI and Machine Learning Workshop",
+      "allDay": false,
+      "startDateTime": "2025-09-17T13:00:00",
+      "endDateTime": "2025-09-17T17:00:00",
+      "description": "Technical workshop covering the latest advances in AI and machine learning.",
+      "location": {
+        "latitude": 37.773972,
+        "longitude": -122.431297
       }
     },
     {
-      "name": "TooLongDuration",
-      "data": {
-        "title": "Invalid Event Too Long",
-        "allDay": false,
-        "startDateTime": "2025-04-19T13:00:00",
-        "endDateTime": "2025-04-27T13:00:00"
-      }
-    }
-  ],
-  "specialQueries": [
-    {
-      "name": "GetByDateQuery",
-      "url": "api/events/by-date?date=2025-12-25"
+      "title": "Fall Equinox Team Building",
+      "allDay": true,
+      "dateOnly": "2025-09-22",
+      "description": "Outdoor team-building activities to celebrate the fall equinox."
     },
     {
-      "name": "GetByDateRangeQuery",
-      "url": "api/events/by-date-range?startDate=2025-12-19&endDate=2025-12-26"
+      "title": "Project Management Certification Course",
+      "allDay": true,
+      "dateOnly": "2025-09-25",
+      "description": "Professional certification course for project managers.",
+      "location": {
+        "latitude": 25.761681,
+        "longitude": -80.191788
+      }
+    },
+    {
+      "title": "End of Quarter Push",
+      "allDay": false,
+      "startDateTime": "2025-09-29T14:00:00",
+      "endDateTime": "2025-09-29T15:30:00",
+      "description": "Team meeting to coordinate efforts for end-of-quarter objectives."
+    },
+    {
+      "title": "Fiscal Year Planning Session",
+      "allDay": false,
+      "startDateTime": "2025-10-02T10:00:00",
+      "endDateTime": "2025-10-02T16:00:00",
+      "description": "Department heads meeting to align on goals and budgets for the next fiscal year.",
+      "location": {
+        "latitude": 52.520008,
+        "longitude": 13.404954
+      }
+    },
+    {
+      "title": "Cloud Migration Planning",
+      "allDay": false,
+      "startDateTime": "2025-10-06T13:00:00",
+      "endDateTime": "2025-10-06T15:00:00",
+      "description": "IT team meeting to plan the upcoming cloud migration project."
+    },
+    {
+      "title": "Columbus Day / Indigenous Peoples' Day",
+      "allDay": true,
+      "dateOnly": "2025-10-13",
+      "description": "Office closed in observance of the holiday."
+    },
+    {
+      "title": "Fall Product Launch Event",
+      "allDay": false,
+      "startDateTime": "2025-10-16T14:00:00",
+      "endDateTime": "2025-10-16T18:00:00",
+      "description": "Launch event for our new fall product line with demonstrations and networking.",
+      "location": {
+        "latitude": 48.856613,
+        "longitude": 2.352222
+      }
+    },
+    {
+      "title": "Client Appreciation Dinner",
+      "allDay": false,
+      "startDateTime": "2025-10-21T18:30:00",
+      "endDateTime": "2025-10-21T21:00:00",
+      "description": "Dinner event to show appreciation for our key clients and partners.",
+      "location": {
+        "latitude": 34.052235,
+        "longitude": -118.243683
+      }
+    },
+    {
+      "title": "Halloween Office Celebration",
+      "allDay": false,
+      "startDateTime": "2025-10-31T15:00:00",
+      "endDateTime": "2025-10-31T17:00:00",
+      "description": "Office Halloween party with costume contest and festive activities."
+    },
+    {
+      "title": "Daylight Saving Time Ends",
+      "allDay": true,
+      "dateOnly": "2025-11-02",
+      "description": "Reminder to set clocks back one hour."
+    },
+    {
+      "title": "Q4 Sales Strategy Meeting",
+      "allDay": false,
+      "startDateTime": "2025-11-05T09:00:00",
+      "endDateTime": "2025-11-05T12:00:00",
+      "description": "Review of Q4 sales targets and planning for holiday season promotions.",
+      "location": {
+        "latitude": 41.878113,
+        "longitude": -87.629799
+      }
+    },
+    {
+      "title": "Veterans Day Remembrance",
+      "allDay": true,
+      "dateOnly": "2025-11-11",
+      "description": "Special event honoring veterans and their service.",
+      "location": {
+        "latitude": 38.889484,
+        "longitude": -77.035278
+      }
+    },
+    {
+      "title": "International Business Conference",
+      "allDay": true,
+      "dateOnly": "2025-11-14",
+      "description": "Three-day conference on global business trends and international opportunities.",
+      "location": {
+        "latitude": 51.507351,
+        "longitude": -0.127758
+      }
+    },
+    {
+      "title": "Pre-Thanksgiving Team Luncheon",
+      "allDay": false,
+      "startDateTime": "2025-11-19T12:00:00",
+      "endDateTime": "2025-11-19T14:00:00",
+      "description": "Team lunch to celebrate and show gratitude before the Thanksgiving holiday."
+    },
+    {
+      "title": "Thanksgiving Break",
+      "allDay": true,
+      "dateOnly": "2025-11-27",
+      "description": "Office closed for Thanksgiving holiday."
+    },
+    {
+      "title": "Black Friday Online Sale",
+      "allDay": true,
+      "dateOnly": "2025-11-28",
+      "description": "Special online promotions and discounts for Black Friday."
+    },
+    {
+      "title": "Cyber Monday Planning",
+      "allDay": false,
+      "startDateTime": "2025-12-01T09:00:00",
+      "endDateTime": "2025-12-01T11:00:00",
+      "description": "Final coordination meeting for Cyber Monday sales and promotions.",
+      "location": {
+        "latitude": 37.774929,
+        "longitude": -122.419418
+      }
+    },
+    {
+      "title": "Winter Product Line Review",
+      "allDay": false,
+      "startDateTime": "2025-12-03T14:00:00",
+      "endDateTime": "2025-12-03T16:00:00",
+      "description": "Review of winter product performance and inventory planning.",
+      "location": {
+        "latitude": 40.730610,
+        "longitude": -73.935242
+      }
+    },
+    {
+      "title": "Annual Charity Gala",
+      "allDay": false,
+      "startDateTime": "2025-12-06T18:00:00",
+      "endDateTime": "2025-12-06T23:00:00",
+      "description": "Formal fundraising event to support our annual charity partner.",
+      "location": {
+        "latitude": 40.712776,
+        "longitude": -74.005974
+      }
+    },
+    {
+      "title": "End-of-Year Department Reviews",
+      "allDay": false,
+      "startDateTime": "2025-12-10T09:00:00",
+      "endDateTime": "2025-12-10T17:00:00",
+      "description": "Annual reviews of departmental performance and goal achievement."
+    },
+    {
+      "title": "Holiday Office Decoration Day",
+      "allDay": true,
+      "dateOnly": "2025-12-15",
+      "description": "Team activity to decorate the office for the holiday season."
+    },
+    {
+      "title": "Company Holiday Party",
+      "allDay": false,
+      "startDateTime": "2025-12-19T18:00:00",
+      "endDateTime": "2025-12-19T22:00:00",
+      "description": "Annual holiday celebration for all employees and their guests.",
+      "location": {
+        "latitude": 51.507222,
+        "longitude": -0.127647
+      }
+    },
+    {
+      "title": "Christmas Eve",
+      "allDay": true,
+      "dateOnly": "2025-12-24",
+      "description": "Office closing early for Christmas Eve."
+    },
+    {
+      "title": "Christmas Day",
+      "allDay": true,
+      "dateOnly": "2025-12-25",
+      "description": "Office closed for Christmas Day holiday."
+    },
+    {
+      "title": "Year-End Inventory Count",
+      "allDay": false,
+      "startDateTime": "2025-12-29T09:00:00",
+      "endDateTime": "2025-12-29T17:00:00",
+      "description": "Annual inventory count and reconciliation.",
+      "location": {
+        "latitude": 47.606209,
+        "longitude": -122.332069
+      }
+    },
+    {
+      "title": "New Year's Eve Office Closure",
+      "allDay": true,
+      "dateOnly": "2025-12-31",
+      "description": "Office closing early for New Year's Eve."
+    },
+    {
+      "title": "Marketing Team Strategy Session",
+      "allDay": false,
+      "startDateTime": "2025-05-05T10:00:00",
+      "endDateTime": "2025-05-05T12:30:00",
+      "description": "Planning session for upcoming marketing initiatives and campaigns.",
+      "location": {
+        "latitude": 40.416775,
+        "longitude": -3.703790
+      }
+    },
+    {
+      "title": "IT Systems Maintenance",
+      "allDay": false,
+      "startDateTime": "2025-05-12T22:00:00",
+      "endDateTime": "2025-05-13T02:00:00",
+      "description": "Scheduled maintenance window for server updates and system patches."
+    },
+    {
+      "title": "Remote Work Policy Review",
+      "allDay": false,
+      "startDateTime": "2025-05-19T14:00:00",
+      "endDateTime": "2025-05-19T15:30:00",
+      "description": "HR meeting to review and update company remote work policies.",
+      "location": {
+        "latitude": 52.229676,
+        "longitude": 21.012229
+      }
+    },
+    {
+      "title": "Employee Wellness Webinar",
+      "allDay": false,
+      "startDateTime": "2025-05-26T12:00:00",
+      "endDateTime": "2025-05-26T13:00:00",
+      "description": "Lunch and learn session on stress management and work-life balance."
+    },
+    {
+      "title": "Pride Month Kickoff",
+      "allDay": true,
+      "dateOnly": "2025-06-01",
+      "description": "Celebration and awareness activities to mark the beginning of Pride Month.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "Software Development Sprint Planning",
+      "allDay": false,
+      "startDateTime": "2025-06-06T09:00:00",
+      "endDateTime": "2025-06-06T11:00:00",
+      "description": "Planning session for the next two-week development sprint.",
+      "location": {
+        "latitude": 55.6761,
+        "longitude": 12.5683
+      }
+    },
+    {
+      "title": "Data Privacy Training",
+      "allDay": false,
+      "startDateTime": "2025-06-10T13:00:00",
+      "endDateTime": "2025-06-10T14:30:00",
+      "description": "Mandatory training on data privacy regulations and best practices."
+    },
+    {
+      "title": "Summer Solstice Team Outing",
+      "allDay": true,
+      "dateOnly": "2025-06-20",
+      "description": "Outdoor team building activities to celebrate the summer solstice.",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      }
+    },
+    {
+      "title": "Mid-Year Performance Reviews",
+      "allDay": false,
+      "startDateTime": "2025-06-30T09:00:00",
+      "endDateTime": "2025-06-30T17:00:00",
+      "description": "Scheduled mid-year employee performance review meetings."
+    },
+    {
+      "title": "Digital Transformation Workshop",
+      "allDay": true,
+      "dateOnly": "2025-07-08",
+      "description": "Full-day workshop on implementing digital transformation strategies.",
+      "location": {
+        "latitude": 1.3521,
+        "longitude": 103.8198
+      }
+    },
+    {
+      "title": "Client Presentation: Project Milestone",
+      "allDay": false,
+      "startDateTime": "2025-07-14T15:00:00",
+      "endDateTime": "2025-07-14T16:30:00",
+      "description": "Presentation of project milestone achievements to key client stakeholders."
+    },
+    {
+      "title": "Green Initiative Planning",
+      "allDay": false,
+      "startDateTime": "2025-07-18T10:00:00",
+      "endDateTime": "2025-07-18T12:00:00",
+      "description": "Planning meeting for new company sustainability initiatives.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "New Product Brainstorming",
+      "allDay": false,
+      "startDateTime": "2025-07-25T13:00:00",
+      "endDateTime": "2025-07-25T16:00:00",
+      "description": "Creative session to generate ideas for new product development.",
+      "location": {
+        "latitude": 52.3676,
+        "longitude": 4.9041
+      }
+    },
+    {
+      "title": "HR Policy Update Review",
+      "allDay": false,
+      "startDateTime": "2025-08-01T11:00:00",
+      "endDateTime": "2025-08-01T12:30:00",
+      "description": "Review of updated HR policies with management team."
+    },
+    {
+      "title": "Vendor Negotiation Meeting",
+      "allDay": false,
+      "startDateTime": "2025-08-05T14:00:00",
+      "endDateTime": "2025-08-05T15:30:00",
+      "description": "Contract negotiation with key supply vendor.",
+      "location": {
+        "latitude": 41.9028,
+        "longitude": 12.4964
+      }
+    },
+    {
+      "title": "Department Budget Planning",
+      "allDay": true,
+      "dateOnly": "2025-08-12",
+      "description": "All-day session for department heads to plan next year's budget allocations."
+    },
+    {
+      "title": "Customer Success Stories Webinar",
+      "allDay": false,
+      "startDateTime": "2025-08-18T15:00:00",
+      "endDateTime": "2025-08-18T16:00:00",
+      "description": "Presentation highlighting recent customer success stories and case studies.",
+      "location": {
+        "latitude": 35.6762,
+        "longitude": 139.6503
+      }
+    },
+    {
+      "title": "Project Retrospective",
+      "allDay": false,
+      "startDateTime": "2025-08-26T10:00:00",
+      "endDateTime": "2025-08-26T11:30:00",
+      "description": "Team meeting to review completed project, discuss lessons learned and celebrate successes."
+    },
+    {
+      "title": "Fall Hiring Initiative Kickoff",
+      "allDay": false,
+      "startDateTime": "2025-09-02T13:00:00",
+      "endDateTime": "2025-09-02T14:30:00",
+      "description": "Planning meeting for fall recruitment campaign and hiring targets.",
+      "location": {
+        "latitude": 43.6532,
+        "longitude": -79.3832
+      }
+    },
+    {
+      "title": "Social Media Strategy Meeting",
+      "allDay": false,
+      "startDateTime": "2025-09-08T11:00:00",
+      "endDateTime": "2025-09-08T12:30:00",
+      "description": "Planning meeting for upcoming social media content and campaigns."
+    },
+    {
+      "title": "Product Roadmap Review",
+      "allDay": false,
+      "startDateTime": "2025-09-15T14:00:00",
+      "endDateTime": "2025-09-15T16:00:00",
+      "description": "Quarterly review of product roadmap and development priorities.",
+      "location": {
+        "latitude": 59.9139,
+        "longitude": 10.7522
+      }
+    },
+    {
+      "title": "Agile Methodology Training",
+      "allDay": true,
+      "dateOnly": "2025-09-18",
+      "description": "Full-day training workshop on agile project management methodologies.",
+      "location": {
+        "latitude": 53.3498,
+        "longitude": -6.2603
+      }
+    },
+    {
+      "title": "Customer Advisory Board Meeting",
+      "allDay": false,
+      "startDateTime": "2025-09-24T09:00:00",
+      "endDateTime": "2025-09-24T14:00:00",
+      "description": "Semi-annual meeting with key customers to gather feedback and discuss product direction."
+    },
+    {
+      "title": "Q4 Planning Session",
+      "allDay": true,
+      "dateOnly": "2025-09-30",
+      "description": "Full-day strategic planning session for Q4 objectives and initiatives.",
+      "location": {
+        "latitude": 34.0522,
+        "longitude": -118.2437
+      }
+    },
+    {
+      "title": "Investor Relations Meeting",
+      "allDay": false,
+      "startDateTime": "2025-10-07T15:00:00",
+      "endDateTime": "2025-10-07T16:30:00",
+      "description": "Regular update meeting with key investors and stakeholders.",
+      "location": {
+        "latitude": 40.7831,
+        "longitude": -73.9712
+      }
+    },
+    {
+      "title": "Health and Safety Training",
+      "allDay": false,
+      "startDateTime": "2025-10-09T10:00:00",
+      "endDateTime": "2025-10-09T12:00:00",
+      "description": "Mandatory workplace health and safety refresher training."
+    },
+    {
+      "title": "Diversity and Inclusion Workshop",
+      "allDay": true,
+      "dateOnly": "2025-10-14",
+      "description": "Interactive workshop focusing on promoting diversity and inclusion in the workplace.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "API Documentation Review",
+      "allDay": false,
+      "startDateTime": "2025-10-17T09:00:00",
+      "endDateTime": "2025-10-17T11:00:00",
+      "description": "Technical team meeting to review and improve API documentation."
+    },
+    {
+      "title": "Cross-Department Collaboration Day",
+      "allDay": true,
+      "dateOnly": "2025-10-24",
+      "description": "Structured day of activities designed to foster collaboration between departments.",
+      "location": {
+        "latitude": 52.5200,
+        "longitude": 13.4050
+      }
+    },
+    {
+      "title": "Customer Support Training",
+      "allDay": false,
+      "startDateTime": "2025-10-28T13:00:00",
+      "endDateTime": "2025-10-28T16:00:00",
+      "description": "Training session for customer support team on new product features and support procedures."
+    },
+    {
+      "title": "November Team Goals Setting",
+      "allDay": false,
+      "startDateTime": "2025-11-03T10:00:00",
+      "endDateTime": "2025-11-03T11:30:00",
+      "description": "Monthly team meeting to set and align on goals for November.",
+      "location": {
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      }
+    },
+    {
+      "title": "User Experience Research Review",
+      "allDay": false,
+      "startDateTime": "2025-11-07T14:00:00",
+      "endDateTime": "2025-11-07T15:30:00",
+      "description": "Review of recent user experience research findings and implications for product design."
+    },
+    {
+      "title": "International Business Strategy",
+      "allDay": true,
+      "dateOnly": "2025-11-12",
+      "description": "All-day strategic planning session for international market expansion.",
+      "location": {
+        "latitude": 25.2048,
+        "longitude": 55.2708
+      }
+    },
+    {
+      "title": "Third-Party Integration Planning",
+      "allDay": false,
+      "startDateTime": "2025-11-18T11:00:00",
+      "endDateTime": "2025-11-18T13:00:00",
+      "description": "Technical discussion on upcoming third-party API integrations.",
+      "location": {
+        "latitude": 37.3382,
+        "longitude": -121.8863
+      }
+    },
+    {
+      "title": "Content Marketing Workshop",
+      "allDay": false,
+      "startDateTime": "2025-11-21T09:00:00",
+      "endDateTime": "2025-11-21T12:00:00",
+      "description": "Workshop on content marketing strategy and implementation.",
+      "location": {
+        "latitude": 45.5017,
+        "longitude": -73.5673
+      }
+    },
+    {
+      "title": "Year-End Tax Planning",
+      "allDay": false,
+      "startDateTime": "2025-11-25T10:00:00",
+      "endDateTime": "2025-11-25T11:30:00",
+      "description": "Meeting with finance team to discuss year-end tax planning strategies."
+    },
+    {
+      "title": "Holiday Marketing Campaign Review",
+      "allDay": false,
+      "startDateTime": "2025-12-02T13:00:00",
+      "endDateTime": "2025-12-02T14:30:00",
+      "description": "Review of ongoing holiday marketing campaign performance.",
+      "location": {
+        "latitude": 19.4326,
+        "longitude": -99.1332
+      }
+    },
+    {
+      "title": "Annual Security Audit",
+      "allDay": true,
+      "dateOnly": "2025-12-05",
+      "description": "Annual comprehensive security audit of all systems and processes."
+    },
+    {
+      "title": "Team Recognition Lunch",
+      "allDay": false,
+      "startDateTime": "2025-12-08T12:00:00",
+      "endDateTime": "2025-12-08T14:00:00",
+      "description": "Team lunch to celebrate achievements and recognize outstanding contributions.",
+      "location": {
+        "latitude": 41.3851,
+        "longitude": 2.1734
+      }
+    },
+    {
+      "title": "2026 Product Planning",
+      "allDay": false,
+      "startDateTime": "2025-12-11T09:00:00",
+      "endDateTime": "2025-12-11T16:00:00",
+      "description": "Full-day planning session for 2026 product development roadmap."
+    },
+    {
+      "title": "Customer Satisfaction Survey Review",
+      "allDay": false,
+      "startDateTime": "2025-12-16T11:00:00",
+      "endDateTime": "2025-12-16T12:30:00",
+      "description": "Analysis of quarterly customer satisfaction survey results.",
+      "location": {
+        "latitude": 22.3193,
+        "longitude": 114.1694
+      }
+    },
+    {
+      "title": "Year-End Team Retrospective",
+      "allDay": false,
+      "startDateTime": "2025-12-22T14:00:00",
+      "endDateTime": "2025-12-22T16:00:00",
+      "description": "Reflection on the year's achievements, challenges, and lessons learned.",
+      "location": {
+        "latitude": 55.9533,
+        "longitude": -3.1883
+      }
+    },
+    {
+      "title": "Boxing Day",
+      "allDay": true,
+      "dateOnly": "2025-12-26",
+      "description": "Office closed for Boxing Day holiday."
+    },
+    {
+      "title": "Year-End Systems Backup",
+      "allDay": false,
+      "startDateTime": "2025-12-30T20:00:00",
+      "endDateTime": "2025-12-30T23:00:00",
+      "description": "Scheduled comprehensive backup of all systems before year end."
+    },
+    {
+      "title": "Candidate Interview: Senior Developer",
+      "allDay": false,
+      "startDateTime": "2025-05-06T14:00:00",
+      "endDateTime": "2025-05-06T15:30:00",
+      "description": "Interview with candidate for the Senior Developer position.",
+      "location": {
+        "latitude": 33.7490,
+        "longitude": -84.3880
+      }
+    },
+    {
+      "title": "Legacy System Migration Planning",
+      "allDay": false,
+      "startDateTime": "2025-05-14T10:00:00",
+      "endDateTime": "2025-05-14T12:00:00",
+      "description": "Technical planning meeting for migrating from legacy systems to new platform."
+    },
+    {
+      "title": "Competitive Analysis Presentation",
+      "allDay": false,
+      "startDateTime": "2025-05-21T13:00:00",
+      "endDateTime": "2025-05-21T14:30:00",
+      "description": "Presentation of recent competitive analysis findings and market positioning strategy.",
+      "location": {
+        "latitude": 45.4642,
+        "longitude": 9.1900
+      }
+    },
+    {
+      "title": "Crisis Management Training",
+      "allDay": true,
+      "dateOnly": "2025-05-29",
+      "description": "Full-day training on crisis management procedures and communication strategies.",
+      "location": {
+        "latitude": 40.4168,
+        "longitude": -3.7038
+      }
+    },
+    {
+      "title": "Mobile App Design Review",
+      "allDay": false,
+      "startDateTime": "2025-06-02T15:00:00",
+      "endDateTime": "2025-06-02T16:30:00",
+      "description": "Review of new mobile app design mockups with the design and development teams."
+    },
+    {
+      "title": "Patent Application Review",
+      "allDay": false,
+      "startDateTime": "2025-06-05T11:00:00",
+      "endDateTime": "2025-06-05T12:00:00",
+      "description": "Meeting with legal team to review pending patent applications.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "Corporate Social Responsibility Meeting",
+      "allDay": false,
+      "startDateTime": "2025-06-11T09:00:00",
+      "endDateTime": "2025-06-11T10:30:00",
+      "description": "Planning meeting for upcoming CSR initiatives and community engagement."
+    },
+    {
+      "title": "Data Analytics Workshop",
+      "allDay": true,
+      "dateOnly": "2025-06-19",
+      "description": "Full-day workshop on advanced data analytics techniques and applications.",
+      "location": {
+        "latitude": 47.6062,
+        "longitude": -122.3321
+      }
+    },
+    {
+      "title": "Customer Journey Mapping",
+      "allDay": false,
+      "startDateTime": "2025-06-23T13:00:00",
+      "endDateTime": "2025-06-23T16:00:00",
+      "description": "Cross-functional workshop to map and optimize customer journeys.",
+      "location": {
+        "latitude": 52.5200,
+        "longitude": 13.4050
+      }
+    },
+    {
+      "title": "Monthly Code Review",
+      "allDay": false,
+      "startDateTime": "2025-06-27T10:00:00",
+      "endDateTime": "2025-06-27T12:00:00",
+      "description": "Regular code review session with the development team."
+    },
+    {
+      "title": "Annual Employee Survey Launch",
+      "allDay": false,
+      "startDateTime": "2025-07-01T09:00:00",
+      "endDateTime": "2025-07-01T10:00:00",
+      "description": "Kickoff meeting for the annual employee engagement survey.",
+      "location": {
+        "latitude": 34.0522,
+        "longitude": -118.2437
+      }
+    },
+    {
+      "title": "Business Continuity Planning",
+      "allDay": true,
+      "dateOnly": "2025-07-09",
+      "description": "Full-day workshop on business continuity planning and disaster recovery strategies."
+    },
+    {
+      "title": "User Testing Session",
+      "allDay": false,
+      "startDateTime": "2025-07-15T13:00:00",
+      "endDateTime": "2025-07-15T16:00:00",
+      "description": "Observation and feedback session with test users for new product features.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Supply Chain Optimization Meeting",
+      "allDay": false,
+      "startDateTime": "2025-07-22T14:00:00",
+      "endDateTime": "2025-07-22T15:30:00",
+      "description": "Strategic meeting to discuss supply chain efficiency improvements.",
+      "location": {
+        "latitude": 31.2304,
+        "longitude": 121.4737
+      }
+    },
+    {
+      "title": "Accessibility Compliance Review",
+      "allDay": false,
+      "startDateTime": "2025-07-28T10:00:00",
+      "endDateTime": "2025-07-28T12:00:00",
+      "description": "Review of product accessibility features and compliance with regulations."
+    },
+    {
+      "title": "Foreign Market Entry Strategy",
+      "allDay": true,
+      "dateOnly": "2025-08-06",
+      "description": "All-day planning session for entering new international markets.",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      }
+    },
+    {
+      "title": "DevOps Practices Workshop",
+      "allDay": false,
+      "startDateTime": "2025-08-11T09:00:00",
+      "endDateTime": "2025-08-11T12:00:00",
+      "description": "Technical workshop on improving DevOps practices and CI/CD pipelines.",
+      "location": {
+        "latitude": 37.3382,
+        "longitude": -121.8863
+      }
+    },
+    {
+      "title": "Executive Quarterly Business Review",
+      "allDay": false,
+      "startDateTime": "2025-08-20T14:00:00",
+      "endDateTime": "2025-08-20T17:00:00",
+      "description": "Quarterly business performance review with executive leadership team."
+    },
+    {
+      "title": "Brand Guidelines Refresh",
+      "allDay": false,
+      "startDateTime": "2025-08-22T11:00:00",
+      "endDateTime": "2025-08-22T13:00:00",
+      "description": "Creative team meeting to update and refresh company brand guidelines.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "Compliance Training",
+      "allDay": true,
+      "dateOnly": "2025-08-27",
+      "description": "Mandatory compliance training for all employees.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Global Team Virtual Meetup",
+      "allDay": false,
+      "startDateTime": "2025-09-03T15:00:00",
+      "endDateTime": "2025-09-03T16:30:00",
+      "description": "Virtual meeting to connect team members across global offices."
+    },
+    {
+      "title": "New Employee Onboarding",
+      "allDay": true,
+      "dateOnly": "2025-09-10",
+      "description": "Full-day onboarding program for new employees starting this month.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "Customer Feedback Implementation",
+      "allDay": false,
+      "startDateTime": "2025-09-16T10:00:00",
+      "endDateTime": "2025-09-16T12:00:00",
+      "description": "Discussion on prioritizing and implementing recent customer feedback."
+    },
+    {
+      "title": "Blockchain Technology Exploration",
+      "allDay": false,
+      "startDateTime": "2025-09-19T14:00:00",
+      "endDateTime": "2025-09-19T16:00:00",
+      "description": "Exploratory session on potential blockchain applications for the business.",
+      "location": {
+        "latitude": 1.3521,
+        "longitude": 103.8198
+      }
+    },
+    {
+      "title": "SEO Strategy Review",
+      "allDay": false,
+      "startDateTime": "2025-09-26T11:00:00",
+      "endDateTime": "2025-09-26T12:30:00",
+      "description": "Review of current SEO performance and strategy adjustments."
+    },
+    {
+      "title": "Financial Forecasting Meeting",
+      "allDay": false,
+      "startDateTime": "2025-10-01T10:00:00",
+      "endDateTime": "2025-10-01T12:00:00",
+      "description": "Meeting to develop financial forecasts for the coming fiscal year.",
+      "location": {
+        "latitude": 41.8781,
+        "longitude": -87.6298
+      }
+    },
+    {
+      "title": "Remote Work Technology Assessment",
+      "allDay": false,
+      "startDateTime": "2025-10-08T13:00:00",
+      "endDateTime": "2025-10-08T15:00:00",
+      "description": "Review of current remote work technologies and potential improvements.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "NPS Survey Results Analysis",
+      "allDay": false,
+      "startDateTime": "2025-10-15T11:00:00",
+      "endDateTime": "2025-10-15T12:30:00",
+      "description": "Team meeting to analyze and act on Net Promoter Score survey results."
+    },
+    {
+      "title": "Industry Conference Preparation",
+      "allDay": true,
+      "dateOnly": "2025-10-20",
+      "description": "Preparation day for upcoming industry conference participation.",
+      "location": {
+        "latitude": 34.0522,
+        "longitude": -118.2437
+      }
+    },
+    {
+      "title": "IT Risk Assessment",
+      "allDay": false,
+      "startDateTime": "2025-10-27T09:00:00",
+      "endDateTime": "2025-10-27T12:00:00",
+      "description": "Comprehensive review of IT systems risks and mitigation strategies."
+    },
+    {
+      "title": "Product Pricing Strategy",
+      "allDay": false,
+      "startDateTime": "2025-11-04T13:00:00",
+      "endDateTime": "2025-11-04T15:30:00",
+      "description": "Strategic discussion on product pricing strategy for upcoming fiscal year.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Customer Support QBR",
+      "allDay": true,
+      "dateOnly": "2025-11-10",
+      "description": "Quarterly business review for the customer support department.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "Website Performance Optimization",
+      "allDay": false,
+      "startDateTime": "2025-11-17T10:00:00",
+      "endDateTime": "2025-11-17T12:00:00",
+      "description": "Technical discussion on improving website performance and loading times."
+    },
+    {
+      "title": "Legal Compliance Review",
+      "allDay": false,
+      "startDateTime": "2025-11-20T14:00:00",
+      "endDateTime": "2025-11-20T15:30:00",
+      "description": "Quarterly review of legal compliance matters with legal team.",
+      "location": {
+        "latitude": 52.5200,
+        "longitude": 13.4050
+      }
+    },
+    {
+      "title": "Database Optimization Project",
+      "allDay": false,
+      "startDateTime": "2025-11-24T13:00:00",
+      "endDateTime": "2025-11-24T16:00:00",
+      "description": "Technical discussion on ongoing database optimization project."
+    },
+    {
+      "title": "December Sales Forecast Meeting",
+      "allDay": false,
+      "startDateTime": "2025-12-01T10:00:00",
+      "endDateTime": "2025-12-01T11:30:00",
+      "description": "Sales team meeting to finalize December sales forecasts.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "AI Feature Implementation Review",
+      "allDay": false,
+      "startDateTime": "2025-12-04T15:00:00",
+      "endDateTime": "2025-12-04T16:30:00",
+      "description": "Review of AI feature implementation progress and roadmap.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "Annual Stakeholder Meeting",
+      "allDay": true,
+      "dateOnly": "2025-12-09",
+      "description": "Annual meeting with key stakeholders to review year performance and future plans.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Year-End IT Infrastructure Review",
+      "allDay": false,
+      "startDateTime": "2025-12-12T09:00:00",
+      "endDateTime": "2025-12-12T12:00:00",
+      "description": "Review of IT infrastructure performance and planning for next year's improvements."
+    },
+    {
+      "title": "2026 Marketing Budget Planning",
+      "allDay": false,
+      "startDateTime": "2025-12-17T13:00:00",
+      "endDateTime": "2025-12-17T16:00:00",
+      "description": "Planning session for 2026 marketing budget allocation.",
+      "location": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      }
+    },
+    {
+      "title": "Last Working Day Celebration",
+      "allDay": false,
+      "startDateTime": "2025-12-23T15:00:00",
+      "endDateTime": "2025-12-23T17:00:00",
+      "description": "Informal celebration for the last working day of the year.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "End of Year Office Closure",
+      "allDay": true,
+      "dateOnly": "2025-12-29",
+      "description": "Office closed between Christmas and New Year's Day."
+    },
+    {
+      "title": "End of Year System Maintenance",
+      "allDay": false,
+      "startDateTime": "2025-12-30T09:00:00",
+      "endDateTime": "2025-12-30T12:00:00",
+      "description": "Final system maintenance session for the year.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "Mental Health Awareness Workshop",
+      "allDay": false,
+      "startDateTime": "2025-05-08T13:00:00",
+      "endDateTime": "2025-05-08T15:00:00",
+      "description": "Workshop focused on mental health awareness and resources in the workplace.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Quarterly Product Roadmap Review",
+      "allDay": false,
+      "startDateTime": "2025-05-13T10:00:00",
+      "endDateTime": "2025-05-13T12:00:00",
+      "description": "Review of product roadmap progress and adjustments for the coming quarter."
+    },
+    {
+      "title": "International Client Visit",
+      "allDay": true,
+      "dateOnly": "2025-05-20",
+      "description": "Hosting international clients for site visit and business discussions.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "Analytics Dashboard Development",
+      "allDay": false,
+      "startDateTime": "2025-05-22T14:00:00",
+      "endDateTime": "2025-05-22T16:00:00",
+      "description": "Planning session for new analytics dashboard development.",
+      "location": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    {
+      "title": "Manufacturing Process Review",
+      "allDay": false,
+      "startDateTime": "2025-05-28T09:00:00",
+      "endDateTime": "2025-05-28T11:30:00",
+      "description": "Review of manufacturing processes and efficiency improvements."
+    },
+    {
+      "title": "Social Media Content Calendar Planning",
+      "allDay": false,
+      "startDateTime": "2025-06-04T11:00:00",
+      "endDateTime": "2025-06-04T12:30:00",
+      "description": "Planning session for social media content calendar for the upcoming quarter.",
+      "location": {
+        "latitude": 34.0522,
+        "longitude": -118.2437
+      }
+    },
+    {
+      "title": "Employee Mentorship Program Kickoff",
+      "allDay": false,
+      "startDateTime": "2025-06-13T13:00:00",
+      "endDateTime": "2025-06-13T14:30:00",
+      "description": "Kickoff meeting for new employee mentorship program initiative."
+    },
+    {
+      "title": "Sales Enablement Training",
+      "allDay": true,
+      "dateOnly": "2025-06-17",
+      "description": "Full-day training for sales team on new product features and selling strategies.",
+      "location": {
+        "latitude": 41.8781,
+        "longitude": -87.6298
+      }
+    },
+    {
+      "title": "Company Vision and Values Workshop",
+      "allDay": false,
+      "startDateTime": "2025-06-24T10:00:00",
+      "endDateTime": "2025-06-24T15:00:00",
+      "description": "Interactive workshop to revisit and reinforce company vision and values.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Travel Policy Review",
+      "allDay": false,
+      "startDateTime": "2025-06-26T11:00:00",
+      "endDateTime": "2025-06-26T12:00:00",
+      "description": "HR meeting to review and update company travel policies."
+    },
+    {
+      "title": "Photography Session: Team Headshots",
+      "allDay": false,
+      "startDateTime": "2025-07-02T10:00:00",
+      "endDateTime": "2025-07-02T15:00:00",
+      "description": "Professional photography session for updated team headshots.",
+      "location": {
+        "latitude": 52.5200,
+        "longitude": 13.4050
+      }
+    },
+    {
+      "title": "Office Space Redesign Consultation",
+      "allDay": false,
+      "startDateTime": "2025-07-10T13:00:00",
+      "endDateTime": "2025-07-10T15:00:00",
+      "description": "Meeting with design consultants to discuss office space redesign plans.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "Research and Development Update",
+      "allDay": false,
+      "startDateTime": "2025-07-17T09:00:00",
+      "endDateTime": "2025-07-17T11:00:00",
+      "description": "Update on current R&D projects and upcoming innovation initiatives."
+    },
+    {
+      "title": "New Vendor Introduction Meeting",
+      "allDay": false,
+      "startDateTime": "2025-07-21T14:00:00",
+      "endDateTime": "2025-07-21T15:30:00",
+      "description": "Introduction meeting with potential new vendor partners.",
+      "location": {
+        "latitude": 47.6062,
+        "longitude": -122.3321
+      }
+    },
+    {
+      "title": "Performance Management Training",
+      "allDay": true,
+      "dateOnly": "2025-07-24",
+      "description": "Training for managers on effective performance management and feedback techniques.",
+      "location": {
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      }
+    },
+    {
+      "title": "Logistics Optimization Meeting",
+      "allDay": false,
+      "startDateTime": "2025-07-30T10:00:00",
+      "endDateTime": "2025-07-30T12:00:00",
+      "description": "Strategic meeting focused on optimizing logistics and delivery processes."
+    },
+    {
+      "title": "Competitor Product Analysis",
+      "allDay": false,
+      "startDateTime": "2025-08-07T11:00:00",
+      "endDateTime": "2025-08-07T13:00:00",
+      "description": "Detailed analysis of competitor products and market positioning.",
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      }
+    },
+    {
+      "title": "Cloud Migration Status Review",
+      "allDay": false,
+      "startDateTime": "2025-08-13T14:00:00",
+      "endDateTime": "2025-08-13T15:30:00",
+      "description": "Progress review of the ongoing cloud migration project."
+    },
+    {
+      "title": "End-User Documentation Review",
+      "allDay": false,
+      "startDateTime": "2025-08-19T10:00:00",
+      "endDateTime": "2025-08-19T11:30:00",
+      "description": "Review and improvement of end-user documentation for products.",
+      "location": {
+        "latitude": 59.9139,
+        "longitude": 10.7522
+      }
     }
   ]
 }

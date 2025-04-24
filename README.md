@@ -130,3 +130,9 @@ years. Added current day display and loaded all events from database.
 for calendar and headers. Created list event container with sorting mini algorithm. Added selected and current day 
 visual functionality. Created date and weekday formatting for UK culture displays. Added event display with event 
 information with ability to open geolocation in Google maps. Added event action buttons (WIP).
++ 2025.04.24 - Added Add event functionality with remembering selected date and window change based on allday bool.
+Added pop up notification window for successful creation or failed validation. Added Search event functionality with 
+4 event buttons: By ID, By Date, By Date Range, Show all events. For retrieving multiple events added sorting algorithm
+and multiday event support. Added notification of total retrieved events. Added Delete event functionality with 
+notification of deletion success/failure. Using AI created a unique sample of 250 events and populated the database 
+through Postman. Tested all added event actions with new database samples. 
