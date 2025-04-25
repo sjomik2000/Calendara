@@ -136,3 +136,5 @@ Added pop up notification window for successful creation or failed validation. A
 and multiday event support. Added notification of total retrieved events. Added Delete event functionality with 
 notification of deletion success/failure. Using AI created a unique sample of 250 events and populated the database 
 through Postman. Tested all added event actions with new database samples. 
++ 2025.04.25 - Added Update button functionality (WIP) with a display window to search for ID first and then display
+update window with old event information pre filled.

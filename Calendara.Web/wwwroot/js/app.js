@@ -372,7 +372,7 @@ function initActionButtons() {
             } else if (button.id === 'deleteEventBtn') {
                 setupDeleteEventForm();
             } else if (button.id === 'updateEventBtn') {
-                console.log(`${button.text} button clicked`);
+                setupUpdateEventForm();
             }
         });
 
@@ -389,16 +389,16 @@ function setupAddEventForm(dateString = null) {
     eventsHeader.textContent = 'Add Event';
 
     const formHTML = `
-        <div class="event-form">
+        <div class="event-form" autocomplete="off">
             <div class="form-group">
                 <label for="eventTitle">Title*:</label>
-                <input type="text" id="eventTitle" class="form-input" required>
+                <input type="text" id="eventTitle" class="form-input" required autocomplete="off">
             </div>
             
             <div class="form-group checkbox-group">
                 <label for="eventAllDay">All day:</label>
                 <label class="toggle-switch">
-                    <input type="checkbox" id="eventAllDay">
+                    <input type="checkbox" id="eventAllDay" autocomplete="off">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -406,44 +406,44 @@ function setupAddEventForm(dateString = null) {
             <div id="dateOnlyGroup" class="form-group date-group" style="display:none;">
                 <label>Date*:</label>
                 <div class="date-inputs">
-                    <input type="text" id="dateDay" class="form-input date-part" placeholder="DD" maxlength="2">
-                    <input type="text" id="dateMonth" class="form-input date-part" placeholder="MM" maxlength="2">
-                    <input type="text" id="dateYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4">
+                    <input type="text" id="dateDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+                    <input type="text" id="dateMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+                    <input type="text" id="dateYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
                 </div>
             </div>
             
             <div id="startDateTimeGroup" class="form-group date-group">
                 <label>Start*:</label>
                 <div class="date-inputs">
-                    <input type="text" id="startDay" class="form-input date-part" placeholder="DD" maxlength="2">
-                    <input type="text" id="startMonth" class="form-input date-part" placeholder="MM" maxlength="2">
-                    <input type="text" id="startYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4">
-                    <input type="text" id="startHour" class="form-input date-part" placeholder="hh" maxlength="2">
-                    <input type="text" id="startMinute" class="form-input date-part" placeholder="mm" maxlength="2">
+                    <input type="text" id="startDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+                    <input type="text" id="startMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+                    <input type="text" id="startYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
+                    <input type="text" id="startHour" class="form-input date-part" placeholder="hh" maxlength="2" autocomplete="off">
+                    <input type="text" id="startMinute" class="form-input date-part" placeholder="mm" maxlength="2" autocomplete="off">
                 </div>
             </div>
             
             <div id="endDateTimeGroup" class="form-group date-group">
                 <label>End*:</label>
                 <div class="date-inputs">
-                    <input type="text" id="endDay" class="form-input date-part" placeholder="DD" maxlength="2">
-                    <input type="text" id="endMonth" class="form-input date-part" placeholder="MM" maxlength="2">
-                    <input type="text" id="endYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4">
-                    <input type="text" id="endHour" class="form-input date-part" placeholder="hh" maxlength="2">
-                    <input type="text" id="endMinute" class="form-input date-part" placeholder="mm" maxlength="2">
+                    <input type="text" id="endDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+                    <input type="text" id="endMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+                    <input type="text" id="endYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
+                    <input type="text" id="endHour" class="form-input date-part" placeholder="hh" maxlength="2" autocomplete="off">
+                    <input type="text" id="endMinute" class="form-input date-part" placeholder="mm" maxlength="2" autocomplete="off">
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="eventDescription">Description:</label>
-                <textarea id="eventDescription" class="form-input textarea"></textarea>
+                <textarea id="eventDescription" class="form-input textarea" autocomplete="off"></textarea>
             </div>
             
             <div class="form-group">
                 <label>Location:</label>
                 <div class="location-inputs">
-                    <input type="text" id="eventLatitude" class="form-input" placeholder="X (latitude)">
-                    <input type="text" id="eventLongitude" class="form-input" placeholder="Y (longitude)">
+                    <input type="text" id="eventLatitude" class="form-input" placeholder="X (latitude)" autocomplete="off">
+                    <input type="text" id="eventLongitude" class="form-input" placeholder="Y (longitude)" autocomplete="off">
                 </div>
             </div>
             
@@ -670,10 +670,10 @@ function setupSearchById() {
     const eventsContainer = document.getElementById('events-list');
 
     const searchByIdHTML = `
-        <div class="event-form">
+        <div class="event-form" autocomplete="off">
             <div class="form-group">
                 <label for="eventId">ID*:</label>
-                <input type="text" id="eventId" class="form-input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+                <input type="text" id="eventId" class="form-input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" autocomplete="off">
             </div>
             
             <div class="form-actions">
@@ -693,13 +693,13 @@ function setupSearchByDate() {
     const eventsContainer = document.getElementById('events-list');
 
     const searchByDateHTML = `
-        <div class="event-form">
+        <div class="event-form" autocomplete="off">
             <div class="form-group">
                 <label>Date*:</label>
                 <div class="date-inputs">
-                    <input type="text" id="searchDay" class="form-input date-part" placeholder="DD" maxlength="2">
-                    <input type="text" id="searchMonth" class="form-input date-part" placeholder="MM" maxlength="2">
-                    <input type="text" id="searchYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4">
+                    <input type="text" id="searchDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+                    <input type="text" id="searchMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+                    <input type="text" id="searchYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
                 </div>
             </div>
             
@@ -727,22 +727,22 @@ function setupSearchByDateRange() {
     const eventsContainer = document.getElementById('events-list');
 
     const searchByRangeHTML = `
-        <div class="event-form">
+        <div class="event-form" autocomplete="off">
             <div class="form-group">
                 <label>Date Start*:</label>
                 <div class="date-inputs">
-                    <input type="text" id="startSearchDay" class="form-input date-part" placeholder="DD" maxlength="2">
-                    <input type="text" id="startSearchMonth" class="form-input date-part" placeholder="MM" maxlength="2">
-                    <input type="text" id="startSearchYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4">
+                    <input type="text" id="startSearchDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+                    <input type="text" id="startSearchMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+                    <input type="text" id="startSearchYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
                 </div>
             </div>
             
             <div class="form-group">
                 <label>Date End*:</label>
                 <div class="date-inputs">
-                    <input type="text" id="endSearchDay" class="form-input date-part" placeholder="DD" maxlength="2">
-                    <input type="text" id="endSearchMonth" class="form-input date-part" placeholder="MM" maxlength="2">
-                    <input type="text" id="endSearchYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4">
+                    <input type="text" id="endSearchDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+                    <input type="text" id="endSearchMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+                    <input type="text" id="endSearchYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
                 </div>
             </div>
             
@@ -1009,10 +1009,10 @@ function setupDeleteEventForm() {
     eventsHeader.textContent = 'Delete Event';
 
     const deleteFormHTML = `
-        <div class="event-form">
+        <div class="event-form" autocomplete="off">
             <div class="form-group">
                 <label for="deleteEventId">ID*:</label>
-                <input type="text" id="deleteEventId" class="form-input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+                <input type="text" id="deleteEventId" class="form-input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" autocomplete="off">
             </div>
             
             <div class="form-actions">
@@ -1051,6 +1051,318 @@ async function deleteEvent() {
         }
     } catch (error) {
         console.error('Error deleting event:', error);
+        showNotification('Error connecting to server', 'error');
+    }
+}
+
+// Update Event
+function setupUpdateEventForm() {
+    const eventsContainer = document.getElementById('events-list');
+    const eventsHeader = document.querySelector('.events-header');
+    eventsHeader.textContent = 'Update Event';
+
+    const updateIdFormHTML = `
+        <div class="event-form" autocomplete="off">
+            <div class="form-group">
+                <label for="updateEventId">ID*:</label>
+                <input type="text" id="updateEventId" class="form-input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" autocomplete="off">
+            </div>
+            
+            <div class="form-actions">
+                <button id="submitSearchEventBtn" class="submit-button">Submit</button>
+                <button id="cancelUpdateBtn" class="cancel-button">Cancel</button>
+            </div>
+        </div>
+    `;
+
+    eventsContainer.innerHTML = updateIdFormHTML;
+
+    document.getElementById('submitSearchEventBtn').addEventListener('click', findEventForUpdate);
+    document.getElementById('cancelUpdateBtn').addEventListener('click', resetEventView);
+}
+
+async function findEventForUpdate() {
+    const eventId = document.getElementById('updateEventId').value.trim();
+
+    if (!eventId) {
+        showNotification('Please enter a valid ID', 'error');
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://localhost:5002/api/events/${eventId}`);
+
+        if (response.ok) {
+            const eventData = await response.json();
+            showNotification('Event has been retrieved successfully', 'success');
+            populateUpdateForm(eventData);
+        } else {
+            showNotification('Event not found, please enter a valid ID', 'error');
+        }
+    } catch (error) {
+        console.error('Error retrieving event:', error);
+        showNotification('Error connecting to server', 'error');
+    }
+}
+
+function populateUpdateForm(event) {
+    const eventsContainer = document.getElementById('events-list');
+
+    let dateInfo = extractDateInfo(event);
+
+    const updateFormHTML = `
+        <div class="event-form" autocomplete="off">
+            <input type="hidden" id="eventId" value="${event.id}" autocomplete="off">
+            
+            <div class="form-group">
+                <label for="eventTitle">Title*:</label>
+                <input type="text" id="eventTitle" class="form-input" value="${event.title || ''}" required autocomplete="off">
+            </div>
+            
+            <div class="form-group checkbox-group">
+                <label for="eventAllDay">All day:</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="eventAllDay" ${event.allDay ? 'checked' : ''} autocomplete="off">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <div id="dateOnlyGroup" class="form-group date-group" style="display:${event.allDay ? 'block' : 'none'};">
+                <label>Date*:</label>
+                <div class="date-inputs">
+                    <input type="text" id="dateDay" class="form-input date-part" placeholder="DD" maxlength="2" value="${dateInfo.dateDay}" autocomplete="off">
+                    <input type="text" id="dateMonth" class="form-input date-part" placeholder="MM" maxlength="2" value="${dateInfo.dateMonth}" autocomplete="off">
+                    <input type="text" id="dateYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" value="${dateInfo.dateYear}" autocomplete="off">
+                </div>
+            </div>
+            
+            <div id="startDateTimeGroup" class="form-group date-group" style="display:${!event.allDay ? 'block' : 'none'};">
+                <label>Start*:</label>
+                <div class="date-inputs">
+                    <input type="text" id="startDay" class="form-input date-part" placeholder="DD" maxlength="2" value="${dateInfo.startDay}" autocomplete="off">
+                    <input type="text" id="startMonth" class="form-input date-part" placeholder="MM" maxlength="2" value="${dateInfo.startMonth}" autocomplete="off">
+                    <input type="text" id="startYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" value="${dateInfo.startYear}" autocomplete="off">
+                    <input type="text" id="startHour" class="form-input date-part" placeholder="hh" maxlength="2" value="${dateInfo.startHour}" autocomplete="off">
+                    <input type="text" id="startMinute" class="form-input date-part" placeholder="mm" maxlength="2" value="${dateInfo.startMinute}" autocomplete="off">
+                </div>
+            </div>
+            
+            <div id="endDateTimeGroup" class="form-group date-group" style="display:${!event.allDay ? 'block' : 'none'};">
+                <label>End*:</label>
+                <div class="date-inputs">
+                    <input type="text" id="endDay" class="form-input date-part" placeholder="DD" maxlength="2" value="${dateInfo.endDay}" autocomplete="off">
+                    <input type="text" id="endMonth" class="form-input date-part" placeholder="MM" maxlength="2" value="${dateInfo.endMonth}" autocomplete="off">
+                    <input type="text" id="endYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" value="${dateInfo.endYear}" autocomplete="off">
+                    <input type="text" id="endHour" class="form-input date-part" placeholder="hh" maxlength="2" value="${dateInfo.endHour}" autocomplete="off">
+                    <input type="text" id="endMinute" class="form-input date-part" placeholder="mm" maxlength="2" value="${dateInfo.endMinute}" autocomplete="off">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="eventDescription">Description:</label>
+                <textarea id="eventDescription" class="form-input textarea" autocomplete="off">${event.description || ''}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Location:</label>
+                <div class="location-inputs">
+                    <input type="text" id="eventLatitude" class="form-input" placeholder="X (latitude)" value="${event.location ? event.location.latitude : ''}" autocomplete="off">
+                    <input type="text" id="eventLongitude" class="form-input" placeholder="Y (longitude)" value="${event.location ? event.location.longitude : ''}" autocomplete="off">
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button id="submitUpdateBtn" class="submit-button">Submit</button>
+                <button id="cancelUpdateBtn" class="cancel-button">Cancel</button>
+            </div>
+        </div>
+    `;
+
+    eventsContainer.innerHTML = updateFormHTML;
+
+    setupEventFormListeners();
+}
+
+//helper to extract information from evemt
+function extractDateInfo(event) {
+    let dateInfo = {
+        dateDay: '', dateMonth: '', dateYear: '',
+        startDay: '', startMonth: '', startYear: '', startHour: '', startMinute: '',
+        endDay: '', endMonth: '', endYear: '', endHour: '', endMinute: ''
+    };
+
+    if (event.dateOnly) {
+        const date = new Date(event.dateOnly);
+        dateInfo.dateDay = String(date.getDate()).padStart(2, '0');
+        dateInfo.dateMonth = String(date.getMonth() + 1).padStart(2, '0');
+        dateInfo.dateYear = date.getFullYear();
+
+        dateInfo.startDay = dateInfo.endDay = dateInfo.dateDay;
+        dateInfo.startMonth = dateInfo.endMonth = dateInfo.dateMonth;
+        dateInfo.startYear = dateInfo.endYear = dateInfo.dateYear;
+    }
+
+    if (event.startDateTime) {
+        const start = new Date(event.startDateTime);
+        dateInfo.startDay = String(start.getDate()).padStart(2, '0');
+        dateInfo.startMonth = String(start.getMonth() + 1).padStart(2, '0');
+        dateInfo.startYear = start.getFullYear();
+        dateInfo.startHour = String(start.getHours()).padStart(2, '0');
+        dateInfo.startMinute = String(start.getMinutes()).padStart(2, '0');
+
+        dateInfo.dateDay = dateInfo.startDay;
+        dateInfo.dateMonth = dateInfo.startMonth;
+        dateInfo.dateYear = dateInfo.startYear;
+    }
+
+    if (event.endDateTime) {
+        const end = new Date(event.endDateTime);
+        dateInfo.endDay = String(end.getDate()).padStart(2, '0');
+        dateInfo.endMonth = String(end.getMonth() + 1).padStart(2, '0');
+        dateInfo.endYear = end.getFullYear();
+        dateInfo.endHour = String(end.getHours()).padStart(2, '0');
+        dateInfo.endMinute = String(end.getMinutes()).padStart(2, '0');
+    }
+
+    return dateInfo;
+}
+
+
+function setupEventFormListeners() {
+    const allDayCheckbox = document.getElementById('eventAllDay');
+    allDayCheckbox.addEventListener('change', function () {
+        const dateOnlyGroup = document.getElementById('dateOnlyGroup');
+        const startDateTimeGroup = document.getElementById('startDateTimeGroup');
+        const endDateTimeGroup = document.getElementById('endDateTimeGroup');
+
+        if (this.checked) {
+            dateOnlyGroup.style.display = 'block';
+            startDateTimeGroup.style.display = 'none';
+            endDateTimeGroup.style.display = 'none';
+        } else {
+            dateOnlyGroup.style.display = 'none';
+            startDateTimeGroup.style.display = 'block';
+            endDateTimeGroup.style.display = 'block';
+        }
+    });
+
+    const numberInputs = document.querySelectorAll('.date-part');
+    numberInputs.forEach(input => {
+        input.addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    });
+
+    document.getElementById('submitUpdateBtn').addEventListener('click', submitUpdateForm);
+    document.getElementById('cancelUpdateBtn').addEventListener('click', resetEventView);
+}
+
+function submitUpdateForm() {
+    const eventId = document.getElementById('eventId').value.trim();
+    const title = document.getElementById('eventTitle').value.trim();
+    const allDay = document.getElementById('eventAllDay').checked;
+    const description = document.getElementById('eventDescription').value.trim();
+
+    if (!title) {
+        showNotification('Title is required', 'error');
+        return;
+    }
+
+    let eventData = {
+        id: eventId,
+        title: title,
+        allDay: allDay
+    };
+
+    if (description) {
+        eventData.description = description;
+    }
+
+    const latitude = document.getElementById('eventLatitude').value.trim();
+    const longitude = document.getElementById('eventLongitude').value.trim();
+
+    if (latitude && longitude) {
+        eventData.location = {
+            latitude: parseFloat(latitude),
+            longitude: parseFloat(longitude)
+        };
+    }
+
+    if (allDay) {
+        const day = document.getElementById('dateDay').value.trim();
+        const month = document.getElementById('dateMonth').value.trim();
+        const year = document.getElementById('dateYear').value.trim();
+
+        if (!day || !month || !year) {
+            showNotification('Date is required for all-day events', 'error');
+            return;
+        }
+
+        eventData.dateOnly = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    } else {
+        const startDay = document.getElementById('startDay').value.trim();
+        const startMonth = document.getElementById('startMonth').value.trim();
+        const startYear = document.getElementById('startYear').value.trim();
+        const startHour = document.getElementById('startHour').value.trim();
+        const startMinute = document.getElementById('startMinute').value.trim();
+
+        const endDay = document.getElementById('endDay').value.trim();
+        const endMonth = document.getElementById('endMonth').value.trim();
+        const endYear = document.getElementById('endYear').value.trim();
+        const endHour = document.getElementById('endHour').value.trim();
+        const endMinute = document.getElementById('endMinute').value.trim();
+
+        if (!startDay || !startMonth || !startYear || !startHour || !startMinute) {
+            showNotification('Start date and time are required', 'error');
+            return;
+        }
+
+        if (!endDay || !endMonth || !endYear || !endHour || !endMinute) {
+            showNotification('End date and time are required', 'error');
+            return;
+        }
+
+        const startDateTime = new Date(`${startYear}-${startMonth.padStart(2, '0')}-${startDay.padStart(2, '0')}T${startHour.padStart(2, '0')}:${startMinute.padStart(2, '0')}:00Z`);
+        const endDateTime = new Date(`${endYear}-${endMonth.padStart(2, '0')}-${endDay.padStart(2, '0')}T${endHour.padStart(2, '0')}:${endMinute.padStart(2, '0')}:00Z`);
+
+        if (endDateTime <= startDateTime) {
+            showNotification('End time must be after start time', 'error');
+            return;
+        }
+
+        eventData.startDateTime = startDateTime.toISOString();
+        eventData.endDateTime = endDateTime.toISOString();
+    }
+
+    updateEvent(eventData);
+}
+
+async function updateEvent(eventData) {
+    try {
+        const response = await fetch(`https://localhost:5002/api/events/${eventData.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(eventData)
+        });
+
+        if (response.ok) {
+            showNotification('Event has been updated successfully', 'success');
+            await loadEvents();
+            refreshCalendar();
+            resetEventView();
+        } else {
+            const errorData = await response.json();
+            if (errorData && errorData.errors) {
+                const errorMessages = Object.values(errorData.errors).flat().join(', ');
+                showNotification(errorMessages, 'error');
+            } else {
+                showNotification('Failed to update event', 'error');
+            }
+        }
+    } catch (error) {
+        console.error('Error updating event:', error);
         showNotification('Error connecting to server', 'error');
     }
 }
