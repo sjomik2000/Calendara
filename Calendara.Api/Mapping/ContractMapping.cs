@@ -61,9 +61,8 @@ namespace Calendara.Api.Mapping
                                request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
                                ? eventItem.Description
                                : request.Description,
-                    Location = request.Location is null && 
-                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
-                               ? eventItem.Location
+                    Location = request.Location == null
+                               ? null
                                : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
@@ -81,9 +80,8 @@ namespace Calendara.Api.Mapping
                                request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
                                ? eventItem.Description
                                : request.Description,
-                    Location = request.Location is null &&
-                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
-                               ? eventItem.Location
+                    Location = request.Location == null
+                               ? null
                                : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
@@ -105,9 +103,8 @@ namespace Calendara.Api.Mapping
                                request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
                                ? eventItem.Description
                                : request.Description,
-                    Location = request.Location is null &&
-                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
-                               ? eventItem.Location
+                    Location = request.Location == null
+                               ? null
                                : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }
@@ -125,9 +122,8 @@ namespace Calendara.Api.Mapping
                                request.GetType().GetProperty(nameof(request.Description))?.GetValue(request) == null
                                ? eventItem.Description
                                : request.Description,
-                    Location = request.Location is null &&
-                               request.GetType().GetProperty(nameof(request.Location))?.GetValue(request) == null
-                               ? eventItem.Location
+                    Location = request.Location == null
+                               ? null
                                : new GeoCoordinate(request.Location.Latitude, request.Location.Longitude)
                 };
             }

@@ -1,0 +1,63 @@
+﻿<div class="event-form" autocomplete="off">
+    <div class="form-group">
+        <label for="eventTitle">Title*:</label>
+        <input type="text" id="eventTitle" class="form-input" required autocomplete="off">
+    </div>
+
+    <div class="form-group checkbox-group">
+        <label for="eventAllDay">All day:</label>
+        <label class="toggle-switch">
+            <input type="checkbox" id="eventAllDay" autocomplete="off">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div id="dateOnlyGroup" class="form-group date-group" style="display:none;">
+        <label>Date*:</label>
+        <div class="date-inputs">
+            <input type="text" id="dateDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+            <input type="text" id="dateMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+            <input type="text" id="dateYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
+        </div>
+    </div>
+
+    <div id="startDateTimeGroup" class="form-group date-group">
+        <label>Start*:</label>
+        <div class="date-inputs">
+            <input type="text" id="startDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+            <input type="text" id="startMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+            <input type="text" id="startYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
+            <input type="text" id="startHour" class="form-input date-part" placeholder="hh" maxlength="2" autocomplete="off">
+            <input type="text" id="startMinute" class="form-input date-part" placeholder="mm" maxlength="2" autocomplete="off">
+        </div>
+    </div>
+
+    <div id="endDateTimeGroup" class="form-group date-group">
+        <label>End*:</label>
+        <div class="date-inputs">
+            <input type="text" id="endDay" class="form-input date-part" placeholder="DD" maxlength="2" autocomplete="off">
+            <input type="text" id="endMonth" class="form-input date-part" placeholder="MM" maxlength="2" autocomplete="off">
+            <input type="text" id="endYear" class="form-input date-part year-part" placeholder="YYYY" maxlength="4" autocomplete="off">
+            <input type="text" id="endHour" class="form-input date-part" placeholder="hh" maxlength="2" autocomplete="off">
+            <input type="text" id="endMinute" class="form-input date-part" placeholder="mm" maxlength="2" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="eventDescription">Description:</label>
+        <textarea id="eventDescription" class="form-input textarea" autocomplete="off"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Location:</label>
+        <div class="location-inputs">
+            <input type="text" id="eventLatitude" class="form-input" placeholder="X (latitude)" autocomplete="off">
+            <input type="text" id="eventLongitude" class="form-input" placeholder="Y (longitude)" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button id="submitEventBtn" class="submit-button">Submit</button>
+        <button id="cancelEventBtn" class="cancel-button">Cancel</button>
+    </div>
+</div>

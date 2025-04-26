@@ -138,3 +138,7 @@ notification of deletion success/failure. Using AI created a unique sample of 25
 through Postman. Tested all added event actions with new database samples. 
 + 2025.04.25 - Added Update button functionality (WIP) with a display window to search for ID first and then display
 update window with old event information pre filled.
++ 2025.04.26 - Finished Update event action functionality. Fixed bug when location and description wouldn't remove if 
+deleted. Fixed bug for incorrect multi-day event display. Fixed bug when updating all day event displayed DateTime 
+properties. Refactored App.js file into modular files into Actions, Calendar, Events and Utilities for better readability. 
+Added separate HTML files for event actions HTML forms. Added several browser console logs to detect and debug errors.

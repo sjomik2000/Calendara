@@ -64,15 +64,25 @@ namespace Calendara.Application.Repositories
 
         public async Task<bool> UpdateAsync(Event eventItem)
         {
-            var exists = await ExistsByIdAsync(eventItem.Id);
-            if (!exists)
+            try
             {
+                var existingEvent = await _dbConnection.Context.Set<Event>().FindAsync(eventItem.Id);
+                if (existingEvent == null)
+                {
+                    return false;
+                }
+
+                _dbConnection.Context.Set<Event>().Remove(existingEvent);
+                await _dbConnection.SaveChangesAsync();
+                await _dbConnection.Context.Set<Event>().AddAsync(eventItem);
+                await _dbConnection.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating event: {ex.Message}");
                 return false;
             }
-
-            _dbConnection.Context.Set<Event>().Update(eventItem);
-            await _dbConnection.SaveChangesAsync();
-            return true;
         }
     }
 }
