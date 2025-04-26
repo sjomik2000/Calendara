@@ -423,11 +423,11 @@ namespace Calendara.UnitTests.Fixtures
                 Id = new Guid("d1e36ce8-6db9-4cb0-b4bd-c4f4ac765922"),
                 Title = "Updated Event Title",
                 AllDay = true,
-                DateOnly = new DateOnly(2025, 12, 25), 
+                DateOnly = new DateOnly(2025, 12, 25),
                 StartDateTime = null,
                 EndDateTime = null,
                 Description = "Updated description for the event.",
-                Location = new GeoCoordinate(40.712776, -74.005974)
+                Location = null
             };
         }
 
@@ -436,13 +436,13 @@ namespace Calendara.UnitTests.Fixtures
             return new Event
             {
                 Id = new Guid("e2f36ce8-6db9-4cb0-b4bd-c4f4ac765922"),
-                Title = "Existing Non-All-Day Event", 
+                Title = "Existing Non-All-Day Event",
                 AllDay = false,
                 DateOnly = null,
-                StartDateTime = new DateTime(2025, 11, 15, 10, 0, 0), 
-                EndDateTime = new DateTime(2025, 11, 15, 12, 0, 0), 
-                Description = "This is a non-all-day event stored in the database.", 
-                Location = new GeoCoordinate(34.052235, -118.243683) 
+                StartDateTime = new DateTime(2025, 11, 15, 10, 0, 0),
+                EndDateTime = new DateTime(2025, 11, 15, 12, 0, 0),
+                Description = "This is a non-all-day event stored in the database.",
+                Location = null
             };
         }
 

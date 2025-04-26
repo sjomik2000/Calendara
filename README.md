@@ -142,3 +142,4 @@ update window with old event information pre filled.
 deleted. Fixed bug for incorrect multi-day event display. Fixed bug when updating all day event displayed DateTime 
 properties. Refactored App.js file into modular files into Actions, Calendar, Events and Utilities for better readability. 
 Added separate HTML files for event actions HTML forms. Added several browser console logs to detect and debug errors.
+Updated Azure pipeline to build Web layer then combine API and Web to build full App.
