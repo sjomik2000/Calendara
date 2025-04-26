@@ -10,6 +10,7 @@ variables:
   apiProject: '**/Calendara.Api.csproj'
   applicationProject: '**/Calendara.Application.csproj'
   contractsProject: '**/Calendara.Contracts.csproj'
+  webProject: '**/Calendara.Web.csproj'
   testProject: '**/Calendara.UnitTests.csproj'
 
 steps:
