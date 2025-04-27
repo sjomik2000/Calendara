@@ -97,6 +97,7 @@ The architecture of the project is broken down into several layers:
    + Unit tests for all components
    + Used TDD approach to write controller actions
 ![image](https://github.com/user-attachments/assets/32b66285-0be2-4e82-84fc-f5d46d43bbb5)
+![image](https://github.com/user-attachments/assets/b6218f57-d95f-4dd0-8616-30257c6a86ff)
 
 ### F) DevOps Integration
 1) Azure DevOps Pipeline
