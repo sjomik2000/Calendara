@@ -22,6 +22,7 @@ The architecture of the project is broken down into several layers:
    + Support for all-day events
    + Geolocation integration with Google Maps
    + Input validation with success/failure notifications
+![image](https://github.com/user-attachments/assets/0ea13d35-1ec9-4975-aca8-93ab57c91253)
 
 2) Search Events
    + Multiple search options:
@@ -32,6 +33,8 @@ The architecture of the project is broken down into several layers:
    + Multi-day event support
    + Sorted event display
    + Retrieved events count notification
+![image](https://github.com/user-attachments/assets/70c83a50-f585-423b-820f-4cb2e103cddd)
+![image](https://github.com/user-attachments/assets/3ccfb18b-3609-4726-bd57-e03db8acf5e5)
 
 3) Update Events
    + Pre-filled form with existing event data
@@ -39,25 +42,31 @@ The architecture of the project is broken down into several layers:
    + Location and description optional fields
    + Support for modifying all-day event status
    + Input validation with success/failure notifications
+![image](https://github.com/user-attachments/assets/8925b5c5-ac43-49db-8954-0995eeed4177)
 
 4) Delete Events
    + Confirmation system
    + Success/failure notifications
+![image](https://github.com/user-attachments/assets/2d6e2231-a0d6-412f-9000-03a8fc2d04a5)
+
 
 ### B) Calendar Interface
 1) Interactive Navigation
    + Previous/Next month navigation
    + Previous/Next year navigation
    + Previous/Next month's greyed out day paddings
-   + Current day highlighting
-   + Selected day highlighting with tracking
+   + Current day highlighting (deep blue day square background)
+   + Selected day highlighting with tracking (light blue outer lines)
+![image](https://github.com/user-attachments/assets/e49087e2-5c31-4df6-a4ff-ad9307355019)
+
    
 2) Event Display
-   + List view of events
+   + List view of events with sorting algorithm
    + Multi-day event visualisation
    + Event details popup
    + Google Maps location integration
    + UK culture Weekday start and date formatting
+![image](https://github.com/user-attachments/assets/7cb9b116-b557-469d-b349-53d7341411e5)
 
 ### C) API Architecture
 1) RESTful Endpoints
