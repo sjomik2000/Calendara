@@ -137,10 +137,10 @@ git clone https://github.com/yourusername/calendara.git cd calendara
    - Microsoft.EntityFrameworkCore
    - Npgsql.EntityFrameworkCore.PostgreSQL
    - FluentValidation
-   - Microsoft.Extensions.DependencyInjection (for DI registration)
-   - FluentValidation (for Validation)
-   - xUnit (for testing)
-   - Moq (for mocking)
+   - Microsoft.Extensions.DependencyInjection
+   - FluentValidation
+   - xUnit
+   - Moq
 
 ### Running the Application
 1) Open the solution in the IDE
