@@ -74,25 +74,29 @@ The architecture of the project is broken down into several layers:
    + Standard HTTP methods (GET, POST, PUT, DELETE)
    + JSON request/response format
    + CORS support for web integration
+![image](https://github.com/user-attachments/assets/f5ee00fe-bd8a-4c20-a66b-ad3656d882a0)
 
 2) Data Validation
    + Request contract validation
    + Custom GeoCoordinate handling
    + Error response standardisation
    + Mapping middleware
+![image](https://github.com/user-attachments/assets/48495534-0d40-4719-ba7f-fc724c94b298)
 
 ### D) Database Implementation
 1) PostgreSQL Integration
    + Entity Framework Core code-first approach
    + Custom DateTime conversion support
    + Efficient data querying
+![image](https://github.com/user-attachments/assets/be00e6bb-6f5d-4d0e-b664-7e06524c4db0)
 
 2) Testing Infrastructure
    + In-memory database testing
-   + 95%+ code coverage for backend infastructure
+   + 95%+ code coverage for backend infrastructure
    + Custom mocks for HTTP and Validator handling
    + Events fixtures
    + Unit tests for all components
+![image](https://github.com/user-attachments/assets/32b66285-0be2-4e82-84fc-f5d46d43bbb5)
 
 ### E) DevOps Integration
 1) Azure DevOps Pipeline
@@ -100,6 +104,7 @@ The architecture of the project is broken down into several layers:
    + Unit test execution
    + Combined API and Web deployment
    + Self-hosted pool configuration
+![image](https://github.com/user-attachments/assets/a5c387d2-08b3-4e22-9877-b138b5241307)
 
 ## 3. Set up instructions
 
