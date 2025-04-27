@@ -2,108 +2,99 @@
 
 ## 1. Brief description
 
-Calendara is a robust calendar application built on modern .NET technologies that enables users to manage and track events efficiently. The application features an ASP.NET Core Web API backend adhering to RESTful principles, providing a scalable foundation for event management operations. Developed using Test-Driven Development (TDD) methodology, the project ensures high code quality and maintainability. The solution implements proper separation of concerns through a layered architecture and integrates with PostgreSQL for persistent data storage. Version control follows Git workflows with Azure DevOps integration, including CI/CD pipelines for automated testing and deployment.
+Calendara is a comprehensive event management application built with a modern technology stack: .NET 8 backend and HTML/CSS/JavaScript frontend. The system features a responsive calendar interface that enables users to efficiently track and manage their events with intuitive navigation and detailed event views.
+
+The architecture of the project is broken down into several layers:
+1) Backend: Processes API requests and interacts with the database
+    + API layer: ASP.NET Core Web API implementing RESTful principles with comprehensive validation and CORS support, and mapping middleware.
+    + Application layer: Business logic for event management, validation, repository patterns and DI injections.
+    + Contracts layer: Contracts for HTTP requests/responses with custom GeoCoordinate support
+2) Frontend: Displays Calendar on the web browser and fetches API calls
+    + Web layer: Modular JavaScript with dynamic HTML templates and notifications for an interactive user experience
+3) Database: PostgreSQL with Entity Framework Core for data persistence
+4) Testing: Extensive unit and integration tests using xUnit with 95%+ coverage for all C# written backend code
 
 ## 2. Features
 
-### A) CRUD operations
-1) Create: Users can add new events to specific dates with required details (title, description, time), which are persisted in the database.
-2) Read: Users can retrieve events by date range or specific criteria, with pagination support for large result sets ***.
-3) Update: Existing events can be modified with new information while maintaining data integrity through proper validation.
-4) Delete: Events can be permanently removed from the system with appropriate confirmation mechanisms.
+### A) Event Management
+1) Add Events
+   + Add events with title, description, and time
+   + Support for all-day events
+   + Geolocation integration with Google Maps
+   + Input validation with success/failure notifications
 
-### B) RESTful API Standards
-The API follows REST architectural constraints:
+2) Search Events
+   + Multiple search options:
+     - By ID
+     - By specific date
+     - By date range
+     - Show all events
+   + Multi-day event support
+   + Sorted event display
+   + Retrieved events count notification
 
-* Resource-based URLs (/api/events/{id})
-* Proper HTTP methods (GET, POST, PUT, DELETE)
-* Stateless operations
-* Standard HTTP status codes (200, 201, 400, 404, etc.)
-* HATEOAS principles for discoverability
-* JSON payloads for request/response bodies
-* Consistent error handling with problem details (RFC 7807)
+3) Update Events
+   + Pre-filled form with existing event data
+   + Real-time validation
+   + Location and description optional fields
+   + Support for modifying all-day event status
+   + Input validation with success/failure notifications
 
-### C) Modular design
-The application implements a clean, layered architecture:
+4) Delete Events
+   + Confirmation system
+   + Success/failure notifications
 
-1) API Layer:
-  + Controllers handle HTTP requests/responses
-  + Input validation and model mapping
-  + Authentication/authorization***
-  + API versioning support ***
-2) Application Layer:
-  + Business logic implementation
-  + Domain services and DTOs ***
-  + Transaction management ***
-  + Exception handling
-3) Data Access Layer:
-  + Entity Framework Core data context
-  + Repository pattern implementation
-  + Database migrations ***
-  + Query optimization ***
-4) Contracts Layer:
-  + Shared contracts defining API request and response structures
+### B) Calendar Interface
+1) Interactive Navigation
+   + Previous/Next month navigation
+   + Previous/Next year navigation
+   + Previous/Next month's greyed out day paddings
+   + Current day highlighting
+   + Selected day highlighting with tracking
+   
+2) Event Display
+   + List view of events
+   + Multi-day event visualisation
+   + Event details popup
+   + Google Maps location integration
+   + UK culture Weekday start and date formatting
 
-### D) Test-Driven Design (TDD) 
-The project follows TDD practices using the xUnit framework:
-  + Unit tests for all business logic (95%+ coverage)
-  + Integration tests for API endpoints
-  + Database tests with an in-memory provider
-  + Mocking dependencies with Moq library ***
-  + Test fixtures for complex scenarios
-  + Continuous testing via Azure DevOps pipelines
+### C) API Architecture
+1) RESTful Endpoints
+   + Resource-based routing (/api/events/{id})
+   + Standard HTTP methods (GET, POST, PUT, DELETE)
+   + JSON request/response format
+   + CORS support for web integration
 
-Development workflow:
-  1) Write a failing test
-  2) Implement minimal code to pass the test
-  3) Refactor while maintaining green tests
-  4) Repeat for each feature
+2) Data Validation
+   + Request contract validation
+   + Custom GeoCoordinate handling
+   + Error response standardisation
+   + Mapping middleware
 
-### E) Data Persistence 
-The application uses PostgreSQL with Entity Framework Core for robust data management:
-  + Code-first database design
-  + Optimized data model for calendar operations
-  + Proper indexing for frequent queries
-  + Eager loading
-  + Transaction support for data integrity ***
-  + Connection pooling for performance ***
-  + Migration history tracking ***
-  + Configurable retry policies for transient failures ***
+### D) Database Implementation
+1) PostgreSQL Integration
+   + Entity Framework Core code-first approach
+   + Custom DateTime conversion support
+   + Efficient data querying
 
-### F) CI/CD Pipelines
-Azure DevOps pipelines ensure automated quality control:
-  1) Build Pipeline:
-      + Code compilation
-      + NuGet package restoration
-      + Static code analysis
-      + Security scanning
-  2) Test Pipeline:
-      + Unit test execution
-      + Integration test runs
-      + Code coverage reporting
-      + Test result publishing
-  3) Release Pipeline:
-      + Database migration application
-      + Environment-specific configuration
-      + Blue-green deployment strategy
-      + Health verification
-      + Rollback capabilities
-     
-## 3. Tasklist
-- [x] Create a GitHub repository.
-- [x] Create controller
-- [x] Write response and request contracts
-- [x] Mapping
-- [ ] Api Endpoints
-- [x] Service Layer 
-- [x] Database Layer 
-- [x] PostgreSQL config
-- [x] EF core Code first init
-- [x] Validation
+2) Testing Infrastructure
+   + In-memory database testing
+   + 95%+ code coverage for backend infastructure
+   + Custom mocks for HTTP and Validator handling
+   + Events fixtures
+   + Unit tests for all components
 
-## 4. ChangeLog
-+ 2025.04.14 - Created GitHub repository, added .gitignore and modeled project structure and features,
-created README.MD with project breakdown.
+### E) DevOps Integration
+1) Azure DevOps Pipeline
+   + Automated build process
+   + Unit test execution
+   + Combined API and Web deployment
+   + Self-hosted pool configuration
+
+## 3. ChangeLog
++ 2025.04.14 - Created GitHub repository, added .gitignore and modelled project structure and features,
+created README.md with project breakdown.
 + 2025.04.15 - Created API, Application, Contracts and UnitTests base layers, started working 
 on Controller class and Services class, registered Service DI, created Events model and 5 UnitTests.  
 + 2025.04.16 - Upgraded Project Framework from .NET Core 3.1 to .NET 8. Finished Calendara.Contracts layer, 
@@ -117,8 +108,8 @@ validation response failure and fully tested it. Finished writing repository lay
 database. Configured launchSettings.json and Startup.cs to launch API for specified port.
 + 2025.04.19 - Fixed request JSON formatting for Coordinates by creating custom GeoCoordinate class with 
 request and response templates. Tested all HTTP requests through Postman. Added database connection 
-and initialization files.
-+ 2025.04.20 - Written and configured database layer with EF core code first events initialization. Configured 
+and initialisation files.
++ 2025.04.20 - Written and configured database layer with EF core code first events initialisation. Configured 
 appsettings.json and startup files to connect to PostgreSQL. Registered database services. Created custom datetime 
 conversion for PostgreSQL. Updated repository files to connect to the database.
 + 2025.04.21 - Added Microsoft.EntityFramework.InMemory package for testing EF Core functionality. Fully tested 
@@ -138,8 +129,9 @@ notification of deletion success/failure. Using AI created a unique sample of 25
 through Postman. Tested all added event actions with new database samples. 
 + 2025.04.25 - Added Update button functionality (WIP) with a display window to search for ID first and then display
 update window with old event information pre filled.
-+ 2025.04.26 - Finished Update event action functionality. Fixed bug when location and description wouldn't remove if 
++ 2025.04.26 - Finished Update event action functionality. Fixed bug when location and description wouldn't be removed if 
 deleted. Fixed bug for incorrect multi-day event display. Fixed bug when updating all day event displayed DateTime 
 properties. Refactored App.js file into modular files into Actions, Calendar, Events and Utilities for better readability. 
 Added separate HTML files for event actions HTML forms. Added several browser console logs to detect and debug errors.
 Updated Azure pipeline to build Web layer then combine API and Web to build full App.
++ 2025.04.27 - Updated README.md
