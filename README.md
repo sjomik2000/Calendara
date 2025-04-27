@@ -90,15 +90,15 @@ The architecture of the project is broken down into several layers:
    + Efficient data querying
 ![image](https://github.com/user-attachments/assets/be00e6bb-6f5d-4d0e-b664-7e06524c4db0)
 
-2) Testing Infrastructure
-   + In-memory database testing
+### E) Testing Infrastructure
    + 95%+ code coverage for backend infrastructure
    + Custom mocks for HTTP and Validator handling
    + Events fixtures
    + Unit tests for all components
+   + Used TDD approach to write controller actions
 ![image](https://github.com/user-attachments/assets/32b66285-0be2-4e82-84fc-f5d46d43bbb5)
 
-### E) DevOps Integration
+### F) DevOps Integration
 1) Azure DevOps Pipeline
    + Automated build process
    + Unit test execution
