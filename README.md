@@ -92,7 +92,50 @@ The architecture of the project is broken down into several layers:
    + Combined API and Web deployment
    + Self-hosted pool configuration
 
-## 3. ChangeLog
+## 3. Set up instructions
+
+To run the Calendara application on your local machine, follow these steps:
+
+### Installation requirements
+1) Visual Studio 2022 or another compatible IDE
+2) .NET 8 SDK installed on your machine
+3) Git (for cloning the repository)
+4) PostgreSQL database server (version 13 recommended)
+
+### Database Setup
+1) Install PostgreSQL (download from [postgresql.org](https://www.postgresql.org/download/))
+2) Create a new database named `events`
+3) Create a user with credentials as specified in the appsettings.json:
+   - Username: `eventadmin`
+   - Password: `admin1`
+4) Grant the user all privileges on the `events` database
+5) Make sure PostgreSQL is running on port `5433` (default port is 5432, so you might need to change this in your PostgreSQL configuration or update the connection string in appsettings.json)
+
+### Application Setup
+1) Clone this repository to your local machine:
+git clone https://github.com/yourusername/calendara.git cd calendara
+2) Make sure ports 5001 (for Web) and 5002 (for API) are free and not blocked by your firewall
+   - You can modify port configurations in:
+     - `Calendara.Api/Properties/launchSettings.json` for the API
+     - `Calendara.Web/Program.cs` for the Web application
+3) Required NuGet packages will be restored automatically when building the solution, here is the list of main packages used:
+   - Microsoft.EntityFrameworkCore
+   - Npgsql.EntityFrameworkCore.PostgreSQL
+   - FluentValidation
+   - Microsoft.Extensions.DependencyInjection (for DI registration)
+   - FluentValidation (for Validation)
+   - xUnit (for testing)
+   - Moq (for mocking)
+
+### Running the Application
+1) Open the solution in the IDE
+2) Build the solution
+3) Configure run to start both API and Web layer projects simultaneously
+4) The application should now be accessible at:
+   - Web Frontend: https://localhost:5001
+   - API Endpoints: https://localhost:5002/api/events
+
+## 4. ChangeLog
 + 2025.04.14 - Created GitHub repository, added .gitignore and modelled project structure and features,
 created README.md with project breakdown.
 + 2025.04.15 - Created API, Application, Contracts and UnitTests base layers, started working 
